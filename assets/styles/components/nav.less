@@ -1,3 +1,16 @@
+@logo-height-mobile: 32px;
+@logo-height: 44px;
+
 nav {
   box-shadow: none;
+}
+
+.brand-logo img {
+  height: @logo-height-mobile !important;
+  margin: ~"calc((@{navbar-height-mobile} - @{logo-height-mobile})/2)" !important;
+
+  @media only screen and (min-width : @small-screen-up) {
+    margin: ~"calc((@{navbar-height} - @{logo-height})/2)" !important;
+    height: @logo-height !important;
+  }
 }
