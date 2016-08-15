@@ -1,0 +1,15 @@
+nav.white
+  .nav-wrapper
+    a.brand-logo(href='/')
+      img.responsive-img(src='images/shiny.png')
+    ul#nav-mobile.right.hide-on-med-and-down
+      li
+        a.btn-flat.blue.lighten-2.white-text(href='/order') #{__('nav.order')} 
+      li
+        a.blue-text.text-lighten-2.uppercase(href='/how') #{__('nav.how')} 
+      li
+        a.btn-flat.green.lighten-2.white-text(href='/signin') #{__('nav.sign_in')} 
+      li
+        a.grey-text.text-darken-2.uppercase(onclick="setCookie('preferredLanguage', 'en', 99)") en
+      li
+        a.grey-text.text-darken-2.uppercase(onclick="setCookie('preferredLanguage', 'ru', 99)") ru
