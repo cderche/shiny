@@ -1,9 +1,9 @@
 {
 	"nav.order": "Order now",
 	"nav.how": "How it works",
-	"nav.sign_in": "Sign in",
+	"nav.sign_in": "nav.sign_in",
 	"home.marketing": "home.marketing",
-	"nav.questions": "nav.questions",
-	"nav.terms": "nav.terms",
 	"nav.links": "nav.links",
+	"nav.questions": "nav.questions",
+	"nav.terms": "nav.terms"
 }

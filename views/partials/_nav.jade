@@ -5,12 +5,12 @@
         img.responsive-img(src='images/shiny.png')
       ul#nav-mobile.right.hide-on-med-and-down
         li
-          a.btn-flat.blue.lighten-2.white-text(href='/order') #{__('nav.order')} 
+          a.btn-flat.blue.lighten-2.white-text(href='/order') #{i18n('nav.order')} 
         li
           a.blue-text.text-lighten-2.uppercase(href='/how') #{__('nav.how')} 
         li
           a.btn-flat.green.lighten-2.white-text(href='/signin') #{__('nav.sign_in')} 
         li
-          a.grey-text.text-darken-2.uppercase(onclick="setCookie('preferredLanguage', 'en', 99)") en
+          a.grey-text.text-darken-2.uppercase.lang(lang='en') en
         li
-          a.grey-text.text-darken-2.uppercase(onclick="setCookie('preferredLanguage', 'ru', 99)") ru
+          a.grey-text.text-darken-2.uppercase.lang(lang='ru') ru

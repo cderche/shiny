@@ -21,7 +21,7 @@
     "include-all": "~0.1.6",
     "jade": "^1.11.0",
     "rc": "1.0.1",
-    "sails": "~0.12.4",
+    "sails": "^0.12.4",
     "sails-disk": "~0.10.9"
   },
   "scripts": {
@@ -38,7 +38,8 @@
   "license": "",
   "devDependencies": {
     "jade": "^1.11.0",
-    "sails": "^0.12.4",
+    "js-cookie": "^2.1.2",
+    "materialize-css": "^0.97.7",
     "sails-generate-controller-coffee": "0.0.0",
     "sails-generate-model-coffee": "^0.10.9",
     "supertest": "^2.0.0"

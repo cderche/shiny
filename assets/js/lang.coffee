@@ -1,11 +1,7 @@
 $(document).ready ->
-  console.log 'ready!'
-  return
-
-setCookie = (cname, cvalue, exdays) ->
-  d = new Date
-  d.setTime d.getTime() + exdays * 24 * 60 * 60 * 1000
-  expires = 'expires=' + d.toUTCString()
-  document.cookie = cname + '=' + cvalue + '; ' + expires
-  location.reload()
+  $('.lang').click (e) ->
+    e.preventDefault()
+    Cookies.set('preferredLanguage', $(this).attr('lang'), { expires: 365 })
+    location.reload();
+    return
   return
