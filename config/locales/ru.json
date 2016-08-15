@@ -2,6 +2,8 @@
 	"nav.order": "Закaжите сейчас",
 	"nav.how": "nav.how",
 	"nav.sign_in": "nav.sign_in",
-	"my_homepage": "Моя страница",
-	"how_it_works": "how_it_works"
+	"home.marketing": "home.marketing",
+	"nav.links": "nav.links",
+	"nav.questions": "nav.questions",
+	"nav.terms": "nav.terms"
 }

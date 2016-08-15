@@ -2,6 +2,8 @@
 	"nav.order": "Order now",
 	"nav.how": "How it works",
 	"nav.sign_in": "Sign in",
-	"how_it_works": "How it works",
-	"my_homepage": "My homepage"
+	"home.marketing": "home.marketing",
+	"nav.questions": "nav.questions",
+	"nav.terms": "nav.terms",
+	"nav.links": "nav.links"
 }

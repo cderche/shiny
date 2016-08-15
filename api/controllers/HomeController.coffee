@@ -9,4 +9,4 @@ module.exports =
     return res.render('homepage')
 
   page: (req, res) ->
-    return res.render(req.param('page'))
+    return res.render(req.url.substr(1))

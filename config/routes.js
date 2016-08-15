@@ -37,7 +37,9 @@ module.exports.routes = {
   // },
 
   '/' : 'HomeController.home',
-  '/:page' : 'HomeController.page',
+  '/how' : 'HomeController.page',
+  '/signin' : 'HomeController.page',
+  '/signup' : 'HomeController.page',
 
   /***************************************************************************
   *                                                                          *

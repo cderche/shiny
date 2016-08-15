@@ -1,4 +1,11 @@
 extends layout
 
 block content
-  h2 #{__('my_homepage')}
+  .home-hero.valign-wrapper
+    .container.valign
+      .row
+        .col.s12.center-align
+          h2.blue-text.text-lighten-2 #{__('home.marketing')}
+      .row
+        .col.m6.push-m3.s12.center-align
+          a.btn-wide.btn-large.btn-flat.green.lighten-2.white-text #{__('nav.order')}
