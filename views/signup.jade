@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .hero-auth.valign-wrapper
+    .valign.centered
+      form.card#signupForm
+        .card-content
+          .card-title.grey-text.center-align #{__('nav.signup')}
+          .row
+            .input-field.col.s12
+              input#email.validate(type='email' name='email' required)
+              label(for='identifier') #{__('auth.email')}
+            .input-field.col.s12
+              input#password.validate(type='password' name='password' required)
+              label(for='password') #{__('auth.password')}
+            .input-field.col.s12
+              input#password_confirmation.validate(type='password' required)
+              label(for='password_confirmation') #{__('auth.password_confirmation')}
+            .input-field.col.s12
+              input#agreeTerms(type='checkbox' required)
+              label(for='agreeTerms') #{__('auth.agreeTerms')}
+          .row
+            .input-field.col.s12
+              input.disabled.btn-wide.btn.btn-flat.green.lighten-2.white-text(type='submit' value="#{__('nav.signup')}")
+          .row
+            .col.s6
+              a(href='/signin') #{__('auth.have_account')}
+            .col.s6.right-align
+              //- a(href='/forgot') #{__('auth.forgot_password')}

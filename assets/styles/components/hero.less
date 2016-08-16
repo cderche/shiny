@@ -3,14 +3,19 @@
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  height: ~"calc(90vh - @{navbar-height-mobile})";
+  height: ~"calc(100vh - @{navbar-height-mobile})";
 
   @media @medium-and-up {
-    height: ~"calc(90vh - @{navbar-height})";
+    height: ~"calc(100vh - @{navbar-height})";
   }
 }
 
-.home-hero {
+.hero-home {
   .hero;
-  background: url(/images/home-hero.jpg) no-repeat center center fixed
+  background: url(/images/hero-home.jpg) no-repeat center center fixed
+}
+
+.hero-auth {
+  .hero;
+  background: url(/images/hero-auth.jpg) no-repeat center center fixed
 }

@@ -36,10 +36,20 @@ module.exports.routes = {
   //   view: 'homepage'
   // },
 
-  '/' : 'HomeController.home',
-  '/how' : 'HomeController.page',
-  '/signin' : 'HomeController.page',
-  '/signup' : 'HomeController.page',
+  '/' :             'HomeController.home',
+  '/how' :          'HomeController.page',
+  '/signin' :       'HomeController.page',
+  'POST /login':    'AuthController.login',
+  '/logout':       'AuthController.logout',
+
+  '/signup' :       'HomeController.page',
+
+  '/dashboard':     'DashboardController.dashboard',
+  // '/forgot' :       'AuthController.forgot',
+  // '/reset':         'AuthController.reset',
+  // 'POST /reset':    'AuthController.processReset',
+  // 'POST /forgot':   'AuthController.processForgot',
+
 
   /***************************************************************************
   *                                                                          *

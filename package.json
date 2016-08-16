@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "coffee-script": "^1.10.0",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
@@ -20,6 +21,9 @@
     "grunt-sync": "0.5.2",
     "include-all": "~0.1.6",
     "jade": "^1.11.0",
+    "lodash": "^4.15.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "rc": "1.0.1",
     "sails": "^0.12.4",
     "sails-disk": "~0.10.9"

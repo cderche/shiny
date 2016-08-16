@@ -5,5 +5,18 @@
 	"home.marketing": "home.marketing",
 	"nav.links": "nav.links",
 	"nav.questions": "nav.questions",
-	"nav.terms": "nav.terms"
+	"nav.terms": "nav.terms",
+	"nav.signin": "nav.signin",
+	"auth.email": "auth.email",
+	"auth.password": "auth.password",
+	"auth.create_account": "auth.create_account",
+	"auth.forgot_password": "auth.forgot_password",
+	"auth.password_confirmation": "auth.password_confirmation",
+	"auth.agreeTerms": "auth.agreeTerms",
+	"nav.signup": "nav.signup",
+	"auth.have_account": "auth.have_account",
+	"nav.user": "Signed in as %s",
+	"english": "english",
+	"russian": "russian",
+	"nav.signout": "nav.signout"
 }

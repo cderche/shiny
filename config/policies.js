@@ -28,6 +28,18 @@ module.exports.policies = {
 
   '*': ['localize'],
 
+  AuthController: {
+    login: ['localize','passport']
+  },
+
+  DashboardController: {
+    '*': ['localize', 'passport', 'isAuthenticated']
+  },
+
+  // AuthController: {
+  //   '*': ['localize', 'noSessionAuth']
+  // },
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *

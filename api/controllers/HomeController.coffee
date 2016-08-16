@@ -6,7 +6,7 @@
 module.exports =
 
   home: (req, res) ->
-    return res.render('homepage', { lang: res.getLocale() })
+    return res.render('homepage')
 
   page: (req, res) ->
-    return res.render(req.url.substr(1), { lang: res.getLocale() })
+    return res.render(req.url.substr(1))

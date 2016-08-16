@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .hero-auth.valign-wrapper
+    .valign.centered
+      form.card#signinForm
+        .card-content
+          .card-title.grey-text.center-align #{__('nav.signin')}
+          .row
+            .input-field.col.s12
+              input#email.validate(type='email' name='email' required)
+              label(for='email') #{__('auth.email')}
+            .input-field.col.s12
+              input#password.validate(type='password' name='password' required)
+              label(for='password') #{__('auth.password')}
+            .input-field.col.s12
+              input.btn-wide.btn-flat.green.lighten-2.white-text(type='submit' value="#{__('nav.signin')}")
+          .row
+            .col.s6
+              a(href='/signup') #{__('auth.create_account')}
+            .col.s6.right-align
+              //- a(href='/forgot') #{__('auth.forgot_password')}
