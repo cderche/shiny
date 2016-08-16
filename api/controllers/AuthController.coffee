@@ -14,12 +14,12 @@ module.exports = {
   }
 
   login: (req, res) ->
-    console.log 'login'
+    # console.log 'login'
     passport.authenticate('local', (err, user, info) ->
       if err || !user
         return res.send({ message: info.message, user: user })
       req.login user, (err) ->
-        console.log 'req.login', err
+        # console.log 'req.login', err
         if err
           return res.send({ message: err, user: user })
         if user.redirect

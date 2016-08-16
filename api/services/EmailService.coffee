@@ -3,7 +3,7 @@ client = new (mandrill.Mandrill)(process.env.MANDRILL_API_KEY)
 
 module.exports =
   welcome: (user, next) ->
-    console.log 'EmailService.welcome', user
+    console.log 'EmailService.welcome', user.email
 
     template = 'shiny-account-activation'
     message =
@@ -24,7 +24,7 @@ module.exports =
       'async': false
       'ip_pool': ip_pool
     }, ((res) ->
-      console.log 'sendTemplate', res
+      # console.log 'sendTemplate', res
       return next()
     ), (err) ->
       return next err
