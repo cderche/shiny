@@ -7,7 +7,16 @@
   "formation": {
   },
   "addons": [
-
+    "logentries:le_tryit",
+    "newrelic:wayne",
+    {
+      "plan": "mongolab:sandbox",
+      "as": "MONGODB_URI"
+    },
+    {
+      "plan": "heroku-redis:hobby-dev",
+      "as": "REDIS_URI"
+    }
   ],
   "buildpacks": [
     {
