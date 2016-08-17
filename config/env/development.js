@@ -18,7 +18,8 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'devMongoDb'
+    connection: 'devMongoDb',
+    migrate: 'drop',
   }
 
 };
