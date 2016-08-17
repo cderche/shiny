@@ -26,20 +26,26 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': ['localize'],
+  '*': false,
 
-  AuthController: {
-    login: ['localize','passport'],
-  },
+  HomeController: {
+    launch: true
+  }
 
-  DashboardController: {
-    '*': ['localize', 'passport', 'isAuthenticated'],
-  },
-
-  UserController: {
-    create: true,
-    '*': ['localize', 'passport', 'isAuthenticated'],
-  },
+  // '*': ['localize'],
+  //
+  // AuthController: {
+  //   login: ['localize','passport'],
+  // },
+  //
+  // DashboardController: {
+  //   '*': ['localize', 'passport', 'isAuthenticated'],
+  // },
+  //
+  // UserController: {
+  //   create: true,
+  //   '*': ['localize', 'passport', 'isAuthenticated'],
+  // },
 
   // AuthController: {
   //   '*': ['localize', 'noSessionAuth']

@@ -10,3 +10,6 @@ module.exports =
 
   page: (req, res) ->
     return res.render(req.url.substr(1))
+
+  launch: (req, res) ->
+    return res.render('launch')
