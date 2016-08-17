@@ -29,11 +29,16 @@ module.exports.policies = {
   '*': ['localize'],
 
   AuthController: {
-    login: ['localize','passport']
+    login: ['localize','passport'],
   },
 
   DashboardController: {
-    '*': ['localize', 'passport', 'isAuthenticated']
+    '*': ['localize', 'passport', 'isAuthenticated'],
+  },
+
+  UserController: {
+    create: true,
+    '*': ['localize', 'passport', 'isAuthenticated'],
   },
 
   // AuthController: {
