@@ -30,11 +30,27 @@ describe('Auth', function() {
   })
 
   describe('POST /user', function() {
-    it('should return 200', function(done){
+    it('should return 201', function(done){
       request(sails.hooks.http.app)
         .post('/user')
         .send(signupUser)
         .expect(201, done)
+    })
+  })
+
+  describe('GET /signin', function() {
+    it('should return 200', function(done){
+      request(sails.hooks.http.app)
+        .get('/signin')
+        .expect(200, done)
+    })
+  })
+
+  describe('GET /signup', function() {
+    it('should return 200', function(done){
+      request(sails.hooks.http.app)
+        .get('/signup')
+        .expect(200, done)
     })
   })
 
