@@ -19,7 +19,7 @@ module.exports = {
       if err || !user
         return res.send({ message: info.message, user: user })
       req.login user, (err) ->
-        console.log 'req.login', err
+        # console.log 'req.login', err
         if err
           return res.send({ message: err, user: user })
         if user.redirect
@@ -29,6 +29,7 @@ module.exports = {
 
   logout: (req, res) ->
     req.logout()
+    req.session.destroy()
     res.redirect('/')
 
 }

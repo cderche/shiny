@@ -8,5 +8,8 @@ module.exports =
   home: (req, res) ->
     return res.render('homepage')
 
-  page: (req, res) ->
+  public: (req, res) ->
+    return res.render(req.url.substr(1))
+
+  private: (req, res) ->
     return res.render(req.url.substr(1))
