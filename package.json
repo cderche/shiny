@@ -33,7 +33,6 @@
     "socket.io-redis": "^1.0.0"
   },
   "scripts": {
-    "prepublish": "npm install",
     "debug": "node debug app.js",
     "start": "sails lift",
     "test": "mocha test/bootstrap.test.js test/**/*.test.js"
