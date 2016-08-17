@@ -48,7 +48,7 @@ module.exports.policies = {
   },
 
   HomeController: {
-    public: true,
+    public: ['localize'],
     private: authArray,
   },
 
