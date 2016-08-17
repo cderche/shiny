@@ -24,7 +24,7 @@ module.exports =
       'async': false
       'ip_pool': ip_pool
     }, ((res) ->
-      console.log 'sendTemplate', res
+      # console.log 'sendTemplate', res
       return next()
     ), (err) ->
       return next err
