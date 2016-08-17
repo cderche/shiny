@@ -10,7 +10,7 @@
     "logentries:le_tryit",
     "newrelic:wayne",
     "mongolab:sandbox",
-    "heroku-redis:hobby-dev",
+    "heroku-redis:hobby-dev"
   ],
   "buildpacks": [
     {
