@@ -45,9 +45,9 @@
   "author": "kirill",
   "license": "",
   "devDependencies": {
-    "jade": "^1.11.0",
     "js-cookie": "^2.1.2",
     "materialize-css": "^0.97.7",
+    "mocha": "^3.0.2",
     "sails-generate-controller-coffee": "0.0.0",
     "sails-generate-model-coffee": "^0.10.9",
     "supertest": "^2.0.0"
