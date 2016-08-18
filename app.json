@@ -3,6 +3,7 @@
   "scripts": {
   },
   "env": {
+    "sails_hooks__grunt": false
   },
   "formation": {
   },
