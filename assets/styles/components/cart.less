@@ -1,0 +1,98 @@
+.cart-panel {
+  position: relative;
+  z-index: 999;
+  min-height: 140px;
+}
+
+.cart-panel-content {
+  border-top: 1px #f2f2f2 solid;
+  border-bottom: 1px #f2f2f2 solid;
+  width: 100%;
+  position: fixed;
+}
+
+.cart-panel-content .row {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+span.thumb {
+  display: none;
+}
+
+.store {
+  min-height: ~"calc(80vh - @{navbar-height-mobile})";
+
+  @media @medium-and-up {
+    min-height: ~"calc(80vh - @{navbar-height})";
+  }
+}
+
+@btn-outline:                   #e0e0e0;
+@btn-text-highlighted:          #212121;
+
+@btn-highlighted:               #81c784;
+@btn-text-highlighted-light:    #fafafa;
+
+.btn-option {
+  .outline;
+  &:hover {
+    background-color:           @btn-highlighted !important;
+    border-color:               @btn-highlighted;
+    color:                      @btn-text-highlighted-light !important;
+  }
+  &:focus {
+    background-color:           transparent;
+  }
+}
+
+.btn-left {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.btn-right {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.btn-middle {
+  .outline;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+
+  &:hover, &:focus {
+    background-color:           transparent !important;
+    color:                      #212121 !important;
+  }
+}
+
+.sub-btn.ng-hide {
+  opacity: 0;
+}
+
+.sub-btn.ng-hide-add, .sub-btn.ng-hide-remove {
+  transition: 0s linear all;
+  display: block !important;
+}
+
+.sub-btn.ng-hide-add-active
+.sub-btn.ng-hide-remove-active {
+  transition: 1s linear all;
+}
+
+.btn-sq {
+  .outline;
+  height: 140px !important;
+  width: 300px !important;
+  margin-bottom: 10px;
+
+  .active {
+    background-color: #4caf50;
+  }
+
+  .active&:hover, .active&:focus {
+    background-color:           transparent !important;
+  }
+}

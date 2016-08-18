@@ -16,7 +16,7 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
- var loginArray  = ['localize','passport']
+ var publicArray  = ['localize','passport']
  var authArray   = ['localize', 'passport', 'isAuthenticated']
 
 module.exports.policies = {
@@ -28,10 +28,10 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': ['localize'],
+  '*': publicArray,
 
   AuthController: {
-    login: loginArray,
+    login: publicArray,
   },
 
   DashboardController: {
@@ -48,7 +48,7 @@ module.exports.policies = {
   },
 
   HomeController: {
-    public: ['localize'],
+    public: publicArray,
     private: authArray,
   },
 
