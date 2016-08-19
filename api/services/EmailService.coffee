@@ -19,19 +19,20 @@ module.exports =
     return
 
   sendTemplate: (name, content, message, next) ->
+    console.log 'sendTemplate'
     ip_pool = 'Main Pool'
 
     try
-      client.messages.sendTemplate {
+      client.messages.sendTemplate
         'template_name': name
         'template_content': content
         'message': message
         'async': false
         'ip_pool': ip_pool
-      }, ((res) ->
+      , (res) ->
         console.log 'sendTemplate - Completed'
         return next()
-      ), (err) ->
+      , (err) ->
         console.error 'sendTemplate - Error'
         if err
           throw err
