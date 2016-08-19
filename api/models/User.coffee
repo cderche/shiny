@@ -47,6 +47,7 @@ module.exports =
     #   console.log 'Sent welcome email.'
     #   return next()
 
+    console.log 'email:', user.email, 'token:', user.payture_token
     WalletService.register
       VWUserLgn: user.email
       VWUserPsw: user.payture_token
