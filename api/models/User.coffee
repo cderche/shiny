@@ -5,7 +5,7 @@
 
 bcrypt    = require('bcrypt-nodejs')
 randtoken = require('rand-token')
-# Async     = require('async')
+async     = require('async')
 
 module.exports =
 
@@ -42,18 +42,29 @@ module.exports =
 
   afterCreate: (user, next) ->
     try
-      # EmailService.welcome user, (err) ->
-      #   if err
-      #     throw err
-      #   console.log 'Sent welcome email.'
-      #   return
-      WalletService.register
-        VWUserLgn: user.email
-        VWUserPsw: user.payture_token
-      , (err, data) ->
+      async.parallel [
+        (done) ->
+          WalletService.register
+            VWUserLgn: user.email
+            VWUserPsw: user.payture_token
+          , (err, data) ->
+            if err
+              throw err
+            console.log 'Registered', data.Register.Success
+            return done()
+          return
+        (done) ->
+          EmailService.welcome user, (err) ->
+            if err
+              throw err
+            console.log 'Sent welcome email.'
+            return done()
+          return
+      ], (err) ->
         if err
-          console.error err
           throw err
-        console.log 'Registered', data.Register.Success
-        return
-    return next()
+        console.log 'completed tasks'
+        return next()
+    catch error
+      console.error error
+      return next()
