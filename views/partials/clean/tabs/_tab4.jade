@@ -1,0 +1,21 @@
+.container
+  - if (cards)
+    .row
+      .input-field.col.m6.offset-m3.s12
+        label(for='card') #{__('pick_a_card')}
+        select(id='card' ng-model='cart.card_id')
+          each card in cards
+            option(value='card.CardId') #{card.CardName} - #{card.CardHolder}
+      .col.m6.offset-m6.s12
+        button.btn.btn-flat.btn-wide.green.white-text(type='button' ng-click='review()' ng-disabled="!cart.card_id") #{__('review_order')}
+        
+  - if (!cards)
+    .row
+      .col.s12.center
+        .flow-text #{__('t.review_order')}
+    include ../panel/_review
+.container
+  .row
+    .col.s12
+      button.btn.btn-flat.btn-wide.green.lighten-2.white-text.btn-large(type='button' ng-click='cart.submit()' ng-disabled='!cart.isCompleted()') #{__('t.add_card')}
+      p.center.grey-text.text-lighten-1 #{__('t.redirect_payment')}

@@ -26,6 +26,8 @@
     "mandrill-api": "^1.0.45",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "payture": "^1.1.0",
+    "rand-token": "^0.2.1",
     "rc": "1.0.1",
     "sails": "^0.12.4",
     "sails-disk": "~0.10.9",

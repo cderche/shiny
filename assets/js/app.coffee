@@ -26,3 +26,10 @@ module.run [
       $translate.use preferredLanguage
     return
 ]
+
+module.filter 'percentage', [
+  '$filter'
+  ($filter) ->
+    (input, decimals) ->
+      return $filter('number')(input * 100, decimals) + '%'
+]

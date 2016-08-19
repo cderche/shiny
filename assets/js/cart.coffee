@@ -1,48 +1,63 @@
 # CART CLASS - CONTAINS THE PRODUCTS THE CUSTOMER WILL PURCHASE
 
 Cart = (name) ->
-  @name   = name
-  @clear  = false
-  @items  = []
-  @schedule = {}
+  @name       = name
+  @clearCart  = false
+  @items      = []
+  @schedule   = {}
+  @address    = {}
+  @card_id    = false
   # Load items from local storage
   @loadItems()
   @loadSchedule()
+  @loadAddress()
 
   self = @
   $(window).unload ->
-    if self.clear
+    if self.clearCart
       self.clearItems()
       self.clearSchedule()
+      self.clearAddress()
     self.saveItems()
     self.saveSchedule()
+    self.saveAddress()
     self.clearCart = false
     return
   return
 
 Cart::loadSchedule = ->
-  # schedule = if localStorage isnt null then localStorage[@name + '_schedule'] else null
-  # if schedule and JSON
-  #   try
-  #     @schedule = JSON.parse schedule
-  # return
+  schedule = if localStorage isnt null then localStorage[@name + '_schedule'] else null
+  if schedule and JSON
+    try
+      @schedule = JSON.parse schedule
+  return
 
 Cart::loadItems = ->
-  # items = if localStorage isnt null then localStorage[@name + '_items'] else null
-  # if items and JSON
-  #   try
-  #     items = JSON.parse items
-  #     i = 0
-  #     while i < items.length
-  #       item = items[i]
-  #       if item.sku and item.name and item.price and item.quantity
-  #         item = new CartItem(item.sku, item.name, item.price, item.quantity)
-  #         @items.push item
-  # return
+  items = if localStorage isnt null then localStorage[@name + '_items'] else null
+  if items and JSON
+    try
+      items = JSON.parse items
+      i = 0
+      while i < items.length
+        item = items[i]
+        if item.sku and item.name and item.price and item.quantity
+          item = new CartItem(item.sku, item.name, item.price, item.quantity)
+          @items.push item
+        i++
+  return
+
+Cart::loadAddress = ->
+  address = if localStorage isnt null then localStorage[@name + '_address'] else null
+  if address and JSON
+    try
+      @address = JSON.parse address
+  return
 
 Cart::saveSchedule = ->
+  console.log 'saveSchedule'
   if localStorage and JSON
     localStorage[@name + '_schedule'] = JSON.stringify @schedule
+    console.log 'localStorage["schedule"]', localStorage[@name + '_schedule']
   return
 
 Cart::saveItems = ->
@@ -50,7 +65,13 @@ Cart::saveItems = ->
     localStorage[@name + '_items'] = JSON.stringify @items
   return
 
+Cart::saveAddress = ->
+  if localStorage and JSON
+    localStorage[@name + '_address'] = JSON.stringify @address
+  return
+
 Cart::setDate = (date) ->
+  console.log 'setDate'
   @schedule.date = date
   @saveSchedule()
   return
@@ -61,6 +82,7 @@ Cart::setTime = (time) ->
   return
 
 Cart::setRule = (rule) ->
+  console.log 'setRule'
   @schedule.rule = rule
   @saveSchedule()
   return
@@ -107,13 +129,18 @@ Cart::getTotalCount = (sku) ->
   return count
 
 Cart::clearItems = ->
-  @item = []
+  @items = []
   @saveItems()
   return
 
 Cart::clearSchedule = ->
   @schedule = {}
   @saveSchedule()
+  return
+
+Cart::clearAddress = ->
+  @address = {}
+  @saveAddress()
   return
 
 Cart::toNumber = (value) ->
@@ -128,6 +155,47 @@ Cart::getItem = (sku) ->
     i++
   null
 
+Cart::getDuration = (sku) ->
+  price = @getTotalPrice sku
+  rate  = 700
+  Math.round(price / rate * 2) / 2
+
+
+Cart::getFinalPrice = (sku) ->
+  price = @getTotalPrice sku
+  return price * (1.0 - @schedule.rule.discount)
+
+Cart::isMinAddress = ->
+  return false if !@address
+  a = @address.first_name  ||  false
+  b = @address.last_name   ||  false
+  c = @address.email       ||  false
+  d = @address.telephone   ||  false
+  e = @address.street      ||  false
+  return a and b and c and d and e
+
+Cart::isMinSchedule = ->
+  return false if !@schedule
+  a = @schedule.date || false
+  b = @schedule.time || false
+  c = @schedule.rule || false
+  return a and b and c
+
+Cart::isMinItems = ->
+  return @items.length > 0
+
+Cart::isCompleted = ->
+  a = @isMinSchedule()
+  b = @isMinAddress()
+  c = @isMinItems()
+  return a and b and c
+
+Cart::submit = ->
+  @clearCart = true
+  data = JSON.stringify @
+  $('#cart').val(data)
+  $('form').submit()
+  return
 
 CartItem = (sku, name, price, quantity) ->
   @sku = sku

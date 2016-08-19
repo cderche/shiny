@@ -17,7 +17,8 @@
  */
 
  var publicArray  = ['localize','passport']
- var authArray   = ['localize', 'passport', 'isAuthenticated']
+ var authArray    = ['localize', 'passport', 'isAuthenticated']
+ var walletArray  = ['localize', 'passport', 'isAuthenticated', 'wallet']
 
 module.exports.policies = {
 
@@ -51,6 +52,10 @@ module.exports.policies = {
     public: publicArray,
     private: authArray,
   },
+
+  CleanController: {
+    clean: walletArray
+  }
 
   // AuthController: {
   //   '*': ['localize', 'noSessionAuth']

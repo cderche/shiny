@@ -1,12 +1,14 @@
-p Schedule {{ cart.schedule }}
-//- ul
-//-   li.grey-text
-//-     | #{__('clean.duration')}
-//-     span.grey-text.text-darken-2.right ~{{ order.total_duration | minToHrs }} #{__('hours')}
-//-   li.grey-text
-//-     | #{__('clean.starting')}
-//-     span.grey-text.text-darken-2.right {{ order.time | date: 'HH:mm' }} on {{ order.date | date: 'MMM dd' }}
-//-   li.grey-text
-//-     | #{__('clean.how_often')}
-//-     span.grey-text.text-darken-2.right.capitalize
+ul
+  li.grey-text
+    | #{__('t.duration')}
+    span.grey-text.text-darken-2.right ~{{ cart.getDuration() }} #{__('hours')}
+  li.grey-text
+    | #{__('t.date')}
+    span.grey-text.text-darken-2.right {{ cart.schedule.date | date: 'MMM dd' }}
+  li.grey-text
+      | #{__('t.time')}
+      span.grey-text.text-darken-2.right {{ cart.schedule.time | date: 'HH:mm' }}    
+  li.grey-text
+    | #{__('t.how_often')}
+    span.grey-text.text-darken-2.right {{ cart.schedule.rule.name | translate }}
       

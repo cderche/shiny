@@ -1,14 +1,19 @@
-.container
-  ul.tabs.blue-text.text-lighten-2
+form.container.tab-container.white(method='post' action='/order')
+  input#cart(type='hidden' name='cart')
+  ul.tabs.text-lighten-2
     li.tab.col.s3
-      a.blue-text.text-lighten-2(href='#tab1', ng-click="next('tab1', false)") #{__('home')}
-    li.tab.col.s3
-      a.blue-text.text-lighten-2(href='#tab2', ng-click="next('tab2', false)") #{__('when')}
-    li.tab.col.s3
-      a.blue-text.text-lighten-2(href='#tab3', ng-click="next('tab3', false)") #{__('where')}
-    li.tab.col.s3
-      a.blue-text.text-lighten-2(href='#tab4', ng-click="next('tab4', false)") #{__('payment')}
-  #tab1.col.s12.tab-content.white
+      a(href='#tab1') #{__('home')}
+    li.tab.col.s3(ng-class='{ disabled: !cart.isMinItems() }')
+      a(href='#tab2') #{__('when')}
+    li.tab.col.s3(ng-class='{ disabled: !cart.isMinSchedule() }')
+      a(href='#tab3') #{__('where')}
+    li.tab.col.s3(ng-class='{ disabled: !cart.isCompleted() }')
+      a(href='#tab4') #{__('payment')}
+  #tab1.col.s12.tab-content
     include _tab1
-  #tab2.col.s12.tab-content.white
+  #tab2.col.s12.tab-content
     include _tab2
+  #tab3.col.s12.tab-content
+    include _tab3
+  #tab4.col.s12.tab-content
+    include _tab4

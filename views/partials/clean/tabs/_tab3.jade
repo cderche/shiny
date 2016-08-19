@@ -1,0 +1,40 @@
+.container
+  .row
+    .input-field.col.m6.s12
+      input(id='first_name' type='text' ng-model='cart.address.first_name')
+      label(for='first_name') #{__('t.first_name')}
+    .input-field.col.m6.s12
+      input(id='last_name' type='text' ng-model='cart.address.last_name')
+      label(for='last_name') #{__('t.last_name')}
+  .row
+    .input-field.col.m6.s12
+      input(id='email' type='email' ng-model='cart.address.email')
+      label(for='email') #{__('t.email')}
+    .input-field.col.m6.s12
+      input(id='telephone' type='text' ng-model='cart.address.telephone')
+      label(for='telephone') #{__('t.telephone')}
+  .row
+    .input-field.col.s12
+      input(id='street' type='text' ng-model='cart.address.street')
+      label(for='street') #{__('t.street')}
+  .row
+    .input-field.col.m3.s6
+      input(id='house' type='text' ng-model='cart.address.house')
+      label(for='house') #{__('t.house')}
+    .input-field.col.m3.s6
+      input(id='housing' type='text' ng-model='cart.address.housing')
+      label(for='housing') #{__('t.housing')}
+    .input-field.col.m3.s6
+      input(id='building' type='text' ng-model='cart.address.building')
+      label(for='building') #{__('t.building')}
+    .input-field.col.m3.s6
+      input(id='apartment' type='text' ng-model='cart.address.apartment')
+      label(for='apartment') #{__('t.apartment')}
+  .row
+    .input-field.col.s12
+      textarea.materialize-textarea(id='note' ng-model='cart.address.note')
+      label(for='note') #{__('t.additional_note')}
+.container
+  .row
+    .col.s12
+      button.btn-flat.btn-wide.green.white-text.btn-large(type='button' ng-disabled='!cart.isMinAddress()' ng-click='nextTab($event, "tab4", cart.isMinAddress())') #{__('t.payment')}

@@ -1,34 +1,37 @@
 .row
 .row
-  .center(ng-repeat='sku in ["BED", "BAT"]')
+  .container.center(ng-repeat='sku in ["BED", "BAT"]')
     .col.m6.s12(ng-init='product = store.getProduct(sku)')
-      h5 {{ product.name | translate }}
-      button.btn-flat.btn-large.btn-option.btn-left(ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, -1)" ng-disabled='cart.getTotalCount(product.sku) < 2' ng-class='{ disabled: false }')
+      label {{ product.name | translate }}
+      br
+      button.btn-flat.btn-large.btn-option.btn-left(type='button' ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, -1)" ng-disabled='cart.getTotalCount(product.sku) < 2' ng-class='{ disabled: false }')
         i.material-icons remove
-      button.btn-flat.btn-large.btn-middle
+      button.btn-flat.btn-large.btn-middle(type='button')
         span(style='font-size: 16px') {{ cart.getTotalCount(product.sku) }}
-      button.btn-flat.btn-large.btn-option.btn-left.outline(ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, 1)")
+      button.btn-flat.btn-large.btn-option.btn-right.outline(type='button' ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, 1)")
         i.material-icons add
 .row
 .row
-  .center(ng-repeat='sku in ["WIN", "IRO"]')
+  .container.center(ng-repeat='sku in ["WIN", "IRO"]')
     .col.m6.s12(ng-init='product = store.getProduct(sku)')
-      button.btn-flat.btn-sq(ng-class='{ active: cart.getTotalCount(sku) > 0 }' ng-click='stateChanged(sku)')
-        p {{ product.name | translate }}
-        p(ng-hide='cart.getTotalCount(sku) > 0') {{ product.desc | translate }}
+      button.btn-flat.btn-sq(type='button' ng-class='{ active: cart.getTotalCount(sku) > 0 }' ng-click='stateChanged(sku)')
+        label {{ product.name | translate }}
+        br
+        label(ng-hide='cart.getTotalCount(sku) > 0') {{ product.desc | translate }}
         .sub-btn(ng-show='cart.getTotalCount(sku) > 0')
           a.btn-flat.btn-large.btn-option.btn-left.outline(ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, -1); $event.stopPropagation();" ng-disabled='cart.getTotalCount(product.sku) < 2')
             i.material-icons remove
           a.btn-flat.btn-large.btn-middle
             span(style='font-size: 16px') {{ cart.getTotalCount(product.sku) }}
-          a.btn-flat.btn-large.btn-option.btn-left.outline(ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, 1); $event.stopPropagation();")
+          a.btn-flat.btn-large.btn-option.btn-right.outline(ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, 1); $event.stopPropagation();")
             i.material-icons add
 .row
   .col.s12
     ul.collapsible
       li
-        .collapsible-header.center #{__('how_calc')}
-        .collapsible-body.container #{__('how_calc_desc')}
-.row
-  .col.s12
-    button.btn-flat.btn-wide.btn-tab.green.lighten-1.white-text.btn-large(ng-click='nextTab("tab2", true)') #{__('when')}
+        .collapsible-header.center #{__('t.how_calc')}
+        .collapsible-body.container #{__('t.how_calc_desc')}
+.container
+  .row
+    .col.s12
+      button.btn-flat.btn-wide.green.white-text.btn-large(type='button' ng-click='nextTab($event, "tab2", cart.isMinItems())' ng-disabled='!cart.isMinItems()') #{__('t.when')}

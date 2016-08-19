@@ -40,7 +40,7 @@ module.exports.routes = {
   '/how' :          'HomeController.public',
   '/signin' :       'HomeController.public',
   '/signup' :       'HomeController.public',
-  '/clean' :        'HomeController.private',
+  '/clean' :        'CleanController.clean',
   '/logout':        'AuthController.logout',
   '/dashboard':     'DashboardController.dashboard',
 
