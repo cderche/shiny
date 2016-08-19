@@ -34,4 +34,5 @@ module.exports =
       return
     catch error
       console.error error
-      return next error
+      return next()
+    return
