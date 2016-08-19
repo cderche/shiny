@@ -41,49 +41,33 @@ module.exports =
     return
 
   afterCreate: (user, next) ->
-    # EmailService.welcome user, (err) ->
-    #   if err
-    #     console.error err
-    #   console.log 'Sent welcome email.'
-    #   return next()
 
-    console.log 'email:', user.email, 'token:', user.payture_token
-    WalletService.register
-      VWUserLgn: user.email
-      VWUserPsw: user.payture_token
-    , (err, data) ->
-      console.log 'Wallet creation completed.'
-      if err
-        throw err
+    try
+      async.parallel [
+        (done) ->
+          console.log 'Registering wallet...'
+          WalletService.register
+            VWUserLgn: user.email
+            VWUserPsw: user.payture_token
+          , (err, data) ->
+            console.log 'Wallet registered.'
+            if err
+              throw err
+            return done()
+          return
+        (done) ->
+          console.log 'Sending welcome email...'
+          EmailService.welcome user, (err, res) ->
+            if err
+              throw err
+            console.log 'Welcome email sent.'
+            return done()
+          return
+      ], (err, res) ->
+        if err
+          throw err
+        console.log 'Completed tasks.'
+        return next()
+    catch error
+      console.error error
       return next()
-    return
-
-    # try
-    # async.parallel [
-    #   (done) ->
-    #     console.log 'Creating wallet...'
-    #     WalletService.register
-    #       VWUserLgn: user.email
-    #       VWUserPsw: user.payture_token
-    #     , (err, data) ->
-    #       console.log 'Wallet creation completed.'
-    #       if err
-    #         throw err
-    #       return done()
-    #     return
-    #   (done) ->
-    #     console.log 'Sending welcome email...'
-    #     EmailService.welcome user, (err) ->
-    #       if err
-    #         throw err
-    #       console.log 'Sent welcome email.'
-    #       return done()
-    #     return
-    # ], (err, res) ->
-    #   if err
-    #     throw err
-    #   console.log 'Completed tasks.'
-    #   return next()
-    # catch error
-    #   console.error error
-    #   return next()
