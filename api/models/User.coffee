@@ -43,31 +43,52 @@ module.exports =
   afterCreate: (user, next) ->
 
     try
-      async.parallel [
-        (done) ->
-          console.log 'Registering wallet...'
-          WalletService.register
-            VWUserLgn: user.email
-            VWUserPsw: user.payture_token
-          , (err, data) ->
-            console.log 'Wallet registered.'
-            if err
-              throw err
-            return done()
-          return
-        (done) ->
-          console.log 'Sending welcome email...'
-          EmailService.welcome user, (err, res) ->
-            if err
-              throw err
-            console.log 'Welcome email sent.'
-            return done()
-          return
-      ], (err, res) ->
+      WalletService.register
+        VWUserLgn: user.email
+        VWUserPsw: user.payture_token
+      , (err, data) ->
         if err
           throw err
-        console.log 'Completed tasks.'
-        return next()
-    catch error
-      console.error error
-      return next()
+        console.log 'Wallet registered.'
+        return
+
+      EmailService.welcome user, (err, res) ->
+        if err
+          throw err
+        console.log 'Welcome email sent.'
+        return
+    catch err
+      console.error err
+
+    return next()
+
+
+    # try
+    #   async.parallel [
+    #     (done) ->
+    #       console.log 'Registering wallet...'
+    #       WalletService.register
+    #         VWUserLgn: user.email
+    #         VWUserPsw: user.payture_token
+    #       , (err, data) ->
+    #         if err
+    #           throw err
+    #         console.log 'Wallet registered.'
+    #         return done()
+    #       return
+    #     (done) ->
+    #       console.log 'Sending welcome email...'
+    #       EmailService.welcome user, (err, res) ->
+    #         if err
+    #           throw err
+    #         console.log 'Welcome email sent.'
+    #         return done()
+    #       return
+    #   ], (err, res) ->
+    #     if err
+    #       throw err
+    #     console.log 'Completed tasks.'
+    #     return next()
+    # catch error
+    #   console.error error
+    #   return next()
