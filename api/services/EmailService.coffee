@@ -17,15 +17,21 @@ module.exports =
 
   sendTemplate: (name, content, message, next) ->
     ip_pool = 'Main Pool'
-    client.messages.sendTemplate {
-      'template_name': name
-      'template_content': content
-      'message': message
-      'async': false
-      'ip_pool': ip_pool
-    }, ((res) ->
-      # console.log 'sendTemplate', res
-      return next()
-    ), (err) ->
-      return next err
-    return
+
+    try
+      client.messages.sendTemplate {
+        'template_name': name
+        'template_content': content
+        'message': message
+        'async': false
+        'ip_pool': ip_pool
+      }, ((res) ->
+        console.log 'sendTemplate', res
+        return next()
+      ), (err) ->
+        if err
+          throw err
+      return
+    catch error
+      console.error error
+      return next error
