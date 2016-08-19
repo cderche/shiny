@@ -42,11 +42,11 @@ module.exports =
 
   afterCreate: (user, next) ->
     try
-      EmailService.welcome user, (err) ->
-        if err
-          throw err
-        console.log 'Sent welcome email.'
-        return
+      # EmailService.welcome user, (err) ->
+      #   if err
+      #     throw err
+      #   console.log 'Sent welcome email.'
+      #   return
       WalletService.register
         VWUserLgn: user.email
         VWUserPsw: user.payture_token
