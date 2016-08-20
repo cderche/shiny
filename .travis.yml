@@ -4,3 +4,9 @@ node_js:
 services:
   - redis-server
   - mongodb
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
