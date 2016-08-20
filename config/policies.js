@@ -44,21 +44,21 @@ module.exports.policies = {
   //
   UserController: {
     create: true,
-    '*': ['localize','isAuthenticated'],
+    '*': ['localize', 'isAuthenticated'],
   },
   //
   OrderController: {
-    '*': ['localize','isAuthenticated'],
+    '*': ['localize', 'isAuthenticated'],
   },
   //
   HomeController: {
     // public: publicArray,
-    private: ['localize','isAuthenticated'],
+    private: ['localize', 'isAuthenticated'],
   },
   //
   CleanController: {
     clean: ['localize', 'isAuthenticated', 'cardList']
-  }
+  },
 
   AuthController: {
     'login': ['noSessionAuth']
