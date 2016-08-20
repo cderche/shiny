@@ -8,7 +8,7 @@ $(document).ready ->
       return
     auth '/user', data, ->
       auth '/login', data, ->
-        $(location).attr 'href', '/dashboard'
+        $(location).attr 'href', '/clean'
         return
       return
     return
@@ -20,7 +20,7 @@ $(document).ready ->
       data[this.name] = this.value
       return
     auth '/login', data, ->
-      $(location).attr 'href', '/dashboard'
+      $(location).attr 'href', '/clean'
       return
     return
 

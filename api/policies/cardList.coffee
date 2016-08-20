@@ -1,4 +1,5 @@
 module.exports = (req, res, next) ->
+  console.log 'wallet'
 
   payload =
     VWUserLgn:  req.user.email

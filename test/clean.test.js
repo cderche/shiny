@@ -4,12 +4,15 @@ var loginCookie
 
 describe('Clean', function() {
 
-  activeUser = { email: 'user@example.com', password: 'password' }
+  var activeUser = { email: 'user@test.com', password: 'password' }
+
+  var users = []
 
   before(function(next) {
     User.create(activeUser, function(err, user) {
       if (err) { throw err }
       console.log(`Created ${user.email}`);
+      users.push(user)
 
       request(sails.hooks.http.app)
         .post('/login')
@@ -23,7 +26,12 @@ describe('Clean', function() {
   })
 
   after(function(next) {
-    User.destroy().exec(function(err) {
+    async.each(users, function(user, done) {
+      User.destroy({id: user.id}).exec(function(err) {
+        if (err) { console.error(err) }
+        done()
+      })
+    }, function(err) {
       if (err) { console.error(err) }
       next()
     })
@@ -34,7 +42,7 @@ describe('Clean', function() {
       request(sails.hooks.http.app)
         .get('/clean')
         .expect('location', '/signin')
-        .expect(302)
+        .expect(401)
         .end(done)
     })
   })

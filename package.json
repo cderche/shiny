@@ -54,6 +54,7 @@
     "mocha": "^3.0.2",
     "sails-generate-controller-coffee": "0.0.0",
     "sails-generate-model-coffee": "^0.10.9",
+    "should": "^11.1.0",
     "superagent": "^2.2.0",
     "supertest": "^2.0.0"
   }

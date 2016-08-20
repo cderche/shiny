@@ -5,4 +5,12 @@
 
 module.exports =
 
-  attributes: {}
+  attributes:
+    items:
+      type: 'array'
+    schedule:
+      type: 'json'
+    address:
+      type: 'json'
+    card_id:
+      type: 'string'

@@ -16,9 +16,11 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
- var publicArray  = ['localize','passport']
- var authArray    = ['localize', 'passport', 'isAuthenticated']
- var walletArray  = ['localize', 'passport', 'isAuthenticated', 'wallet']
+ var publicArray  = ['passport', 'localize']
+ // var authArray    = ['localize', 'passport', 'isAuthenticated']
+ // var walletArray  = ['localize', 'passport', 'isAuthenticated', 'wallet']
+
+var passport = require('passport')
 
 module.exports.policies = {
 
@@ -29,32 +31,36 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': publicArray,
+  // '*': publicArray,
+  '*': [
+    // 'passport',
+    'localize',
+  ],
 
-  AuthController: {
-    login: publicArray,
-  },
+  // AuthController: {
+  //   // login: publicArray,
+  // },
 
   DashboardController: {
-    '*': authArray,
+    '*': ['isAuthenticated'],
   },
-
+  //
   UserController: {
     create: true,
-    '*': authArray,
+    '*': ['isAuthenticated'],
   },
-
+  //
   OrderController: {
-    '*': authArray,
+    '*': ['isAuthenticated'],
   },
-
+  //
   HomeController: {
-    public: publicArray,
-    private: authArray,
+    // public: publicArray,
+    private: ['isAuthenticated'],
   },
-
+  //
   CleanController: {
-    clean: walletArray
+    clean: ['isAuthenticated', 'cardList']
   }
 
   // AuthController: {

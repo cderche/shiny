@@ -43,6 +43,7 @@ module.exports.routes = {
   '/clean' :        'CleanController.clean',
   '/logout':        'AuthController.logout',
   '/dashboard':     'DashboardController.dashboard',
+  '/status':        'OrderController.status',
 
   'POST /login':    'AuthController.login',
   // '/forgot' :       'AuthController.forgot',

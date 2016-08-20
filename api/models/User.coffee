@@ -41,7 +41,6 @@ module.exports =
     return
 
   afterCreate: (user, next) ->
-
     try
       WalletService.register
         VWUserLgn: user.email
@@ -49,46 +48,31 @@ module.exports =
       , (err, data) ->
         if err
           throw err
-        console.log 'Wallet registered.'
         return
 
       EmailService.welcome user, (err, res) ->
         if err
           throw err
-        console.log 'Welcome email sent.'
         return
     catch err
       console.error err
-
     return next()
 
-
-    # try
-    #   async.parallel [
-    #     (done) ->
-    #       console.log 'Registering wallet...'
-    #       WalletService.register
-    #         VWUserLgn: user.email
-    #         VWUserPsw: user.payture_token
-    #       , (err, data) ->
-    #         if err
-    #           throw err
-    #         console.log 'Wallet registered.'
-    #         return done()
-    #       return
-    #     (done) ->
-    #       console.log 'Sending welcome email...'
-    #       EmailService.welcome user, (err, res) ->
-    #         if err
-    #           throw err
-    #         console.log 'Welcome email sent.'
-    #         return done()
-    #       return
-    #   ], (err, res) ->
-    #     if err
-    #       throw err
-    #     console.log 'Completed tasks.'
-    #     return next()
-    # catch error
-    #   console.error error
-    #   return next()
+  afterDestroy: (users, next) ->
+    async.each users, (user, done) ->
+      try
+        WalletService.delete
+          VWUserLgn: user.email
+          Password: process.env.PAYTURE_PASSWORD
+        , (err, data) ->
+          if err
+            throw err
+          console.log data
+          return done()
+      catch err
+        console.error err
+        return done()
+    , (err) ->
+      throw err if err
+      return next()
+    return

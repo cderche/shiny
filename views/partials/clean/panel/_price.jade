@@ -4,7 +4,7 @@ ul
     span(ng-show='cart.getFinalPrice() != cart.getTotalPrice()')
       s.grey-text.text-lighten-1 {{ cart.getTotalPrice() }} p.
       span.green-text.text-lighten-3 {{ cart.getTotalPrice() - cart.getFinalPrice() }} p.
-    br
+      br
     small.grey-text.text-lighten-1 #{__('t.per_clean')}
 
 //- button(ng-click='cart.clearSchedule()') Clear Schedule

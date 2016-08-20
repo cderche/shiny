@@ -191,8 +191,8 @@ Cart::isCompleted = ->
   return a and b and c
 
 Cart::submit = ->
-  @clearCart = true
-  data = JSON.stringify @
+  # @clearCart = true
+  data = angular.toJson @
   $('#cart').val(data)
   $('form').submit()
   return
