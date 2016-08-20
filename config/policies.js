@@ -32,10 +32,7 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': publicArray,
-  '*': [
-    // 'passport',
-    'localize',
-  ],
+  '*': ['localize'],
 
   // AuthController: {
   //   // login: publicArray,
@@ -47,25 +44,25 @@ module.exports.policies = {
   //
   UserController: {
     create: true,
-    '*': ['isAuthenticated'],
+    '*': ['localize','isAuthenticated'],
   },
   //
   OrderController: {
-    '*': ['isAuthenticated'],
+    '*': ['localize','isAuthenticated'],
   },
   //
   HomeController: {
     // public: publicArray,
-    private: ['isAuthenticated'],
+    private: ['localize','isAuthenticated'],
   },
   //
   CleanController: {
-    clean: ['isAuthenticated', 'cardList']
+    clean: ['localize', 'isAuthenticated', 'cardList']
   }
 
-  // AuthController: {
-  //   '*': ['localize', 'noSessionAuth']
-  // },
+  AuthController: {
+    'login': ['noSessionAuth']
+  },
 
   /***************************************************************************
   *                                                                          *
