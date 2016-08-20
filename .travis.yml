@@ -4,6 +4,8 @@ node_js:
 services:
   - redis-server
   - mongodb
+env:
+  - CXX=g++-4.8
 addons:
   apt:
     sources:
