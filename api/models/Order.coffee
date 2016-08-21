@@ -16,3 +16,9 @@ module.exports =
       type: 'string'
     user:
       model: 'user'
+
+    getItem: (sku, next) ->
+      for item in @items
+        if item.sku == sku
+          return next(sku)
+      return
