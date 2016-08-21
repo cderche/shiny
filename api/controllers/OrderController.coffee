@@ -10,7 +10,12 @@ module.exports =
       cart = JSON.parse req.body.cart
     else
       cart = req.body.cart
-    # delete cart.$$hashKey
+
+    if !req.user
+      return res.redirect 'clean'
+
+    cart.user = req.user.id
+
     try
       Order.create(cart).exec (err, order) ->
         throw err if err

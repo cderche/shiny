@@ -14,3 +14,5 @@ module.exports =
       type: 'json'
     cardId:
       type: 'string'
+    user:
+      model: 'user'
