@@ -14,23 +14,25 @@ module.exports =
     try
       Order.create(cart).exec (err, order) ->
         throw err if err
-        # If card_id, confirm order
-        if order.card_id
+        # If cardId is false, redirect to payture
+        if order.cardId == false or order.cardId == 'false'
+          data =
+            SessionType: 'Add'
+            VWUserLgn: req.user.email
+            VWUserPsw: req.user.payture_token
+            Url: process.env.HOST + '/status?ref=' + order.id
+
+          WalletService.init data, (err, data) ->
+            throw err if err
+            sessionId = data.Init.SessionId
+            uri = process.env.PAYTURE_HOST + '/vwapi/Add?SessionId=' + sessionId
+            return res.redirect uri
+        # Else confirm order
+        else
           req.options.locals = req.options.locals or {}
           req.options.locals.order = order
           return res.status(201).view('status')
-        # Else redirect to payture
-        data =
-          SessionType: 'Add'
-          VWUserLgn: req.user.email
-          VWUserPsw: req.user.payture_token
-          Url: process.env.HOST + '/status?ref=' + order.id
-
-        WalletService.init data, (err, data) ->
-          throw err if err
-          sessionId = data.Init.SessionId
-          uri = process.env.PAYTURE_HOST + '/vwapi/Add?SessionId=' + sessionId
-          return res.redirect uri
+        return
       return
     catch err
       console.error err
@@ -41,7 +43,7 @@ module.exports =
       Order.findOne { id: req.query.ref }, (err, order) ->
         req.options.locals = req.options.locals or {}
         req.options.locals.order = order
-        return res.render('status')
+        return res.status(201).view('status')
       return
     catch err
       console.error err

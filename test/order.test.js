@@ -20,7 +20,8 @@ describe('Order', function() {
         time: Date.now(),
         rule: {}
       },
-      address: {}
+      address: {},
+      cardId: false
     }
   };
 
@@ -33,7 +34,7 @@ describe('Order', function() {
         rule: {}
       },
       address: {},
-      card_id: "some-random-card-id"
+      cardId: "some-random-card-id"
     }
   };
 
@@ -94,6 +95,7 @@ describe('Order', function() {
         .set('Cookie', loginCookie)
         .send(cartNoCard)
         .end(function(err, res) {
+          console.log('res.headers',res.headers)
           res.headers.location.should.match(/^(https:\/\/sandbox2\.payture\.com)/)
           if (err) { throw err }
           done()

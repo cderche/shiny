@@ -1,3 +1,15 @@
-h4 Order Status Page
+extends layout
 
-h5 Id: #{order.id}
+block content
+  .full-height
+    .container.white.margin-top.outline.padding
+      .row
+        .col.s12
+          h4 #{__('t.thank_you_order')}
+          h5 #{__('t.confirmation_order_soon')}
+          - json = JSON.stringify(order)
+          div(ng-app='shiny' ng-init="cart=#{json}")
+            include partials/clean/panel/_review
+      .row
+        .col.s12.center-align
+          h6.grey-text #{__('t.ques_or_changes')}

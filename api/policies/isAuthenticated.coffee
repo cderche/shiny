@@ -19,7 +19,7 @@ module.exports = (req, res, next) ->
   console.log 'isAuthenticated', req.isAuthenticated()
   # console.log 'req.user', req.user
   if req.isAuthenticated()
-    req.options.locals = req.options.locals or {}
-    req.options.locals.user = req.user
+    # req.options.locals = req.options.locals or {}
+    # req.options.locals.user = req.user
     return next()
   return res.redirect(401, 'signin')

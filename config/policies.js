@@ -16,7 +16,10 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
- var publicArray  = ['passport', 'localize']
+var lvl1 = ['localize', 'setUser']
+var lvl2 = lvl1.concat(['isAuthenticated'])
+
+ // var publicArray  = ['passport', 'localize']
  // var authArray    = ['localize', 'passport', 'isAuthenticated']
  // var walletArray  = ['localize', 'passport', 'isAuthenticated', 'wallet']
 
@@ -32,7 +35,7 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': publicArray,
-  '*': ['localize'],
+  '*': lvl1,
 
   // AuthController: {
   //   // login: publicArray,
@@ -44,20 +47,20 @@ module.exports.policies = {
   //
   UserController: {
     create: true,
-    '*': ['localize', 'isAuthenticated'],
+    '*': lvl2,
   },
   //
   OrderController: {
-    '*': ['localize', 'isAuthenticated'],
+    '*': lvl2,
   },
   //
   HomeController: {
     // public: publicArray,
-    private: ['localize', 'isAuthenticated'],
+    private: lvl2,
   },
   //
   CleanController: {
-    clean: ['localize', 'isAuthenticated', 'cardList']
+    clean: lvl2.concat(['cardList'])
   },
 
   AuthController: {

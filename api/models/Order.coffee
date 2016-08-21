@@ -12,5 +12,5 @@ module.exports =
       type: 'json'
     address:
       type: 'json'
-    card_id:
+    cardId:
       type: 'string'

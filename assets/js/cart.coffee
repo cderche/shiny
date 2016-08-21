@@ -6,7 +6,7 @@ Cart = (name) ->
   @items      = []
   @schedule   = {}
   @address    = {}
-  @card_id    = false
+  @cardId    = false
   # Load items from local storage
   @loadItems()
   @loadSchedule()

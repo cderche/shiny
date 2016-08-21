@@ -5,9 +5,9 @@
         img.responsive-img(src='images/shiny.png')
       ul#nav-mobile.right.hide-on-med-and-down
         li
-          a.btn-flat.blue.lighten-2.white-text(href='/clean') #{__('nav.order')} 
+          a.btn-flat.blue.lighten-2.white-text(href='/clean') #{__('t.order_now')} 
         li
-          a.blue-text.text-lighten-2.uppercase(href='/how') #{__('nav.how')} 
+          a.blue-text.text-lighten-2.uppercase(href='/how') #{__('t.how_it_works')} 
         - if (user)
           li
             a.grey-text.text-darken-2.uppercase.dropdown-button(data-activates='userDropdown')
@@ -15,7 +15,7 @@
              i.material-icons.right arrow_drop_down
         - else
           li
-            a.btn-flat.green.lighten-2.white-text(href='/signin') #{__('nav.sign_in')} 
+            a.btn-flat.green.lighten-2.white-text(href='/signin') #{__('t.sign_in')} 
           li
             a.grey-text.text-darken-2.uppercase.lang(lang='en') en
           li
@@ -23,9 +23,9 @@
 
 ul#userDropdown.dropdown-content
   li
-    a.grey-text.text-darken-2.uppercase(href='/logout') #{__('nav.signout')}
+    a.grey-text.text-darken-2.uppercase(href='/logout') #{__('t.signout')}
   li.divider
   li
-    a.grey-text.text-darken-2.uppercase.lang(lang='en') #{__('english')}
+    a.grey-text.text-darken-2.uppercase.lang(lang='en') #{__('t.english')}
   li
-    a.grey-text.text-darken-2.uppercase.lang(lang='ru') #{__('russian')}
+    a.grey-text.text-darken-2.uppercase.lang(lang='ru') #{__('t.russian')}
