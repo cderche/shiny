@@ -1,7 +1,7 @@
 ul
   li.grey-text
     | #{__('t.duration')}
-    span.grey-text.text-darken-2.right ~{{ cart.getDuration() }} #{__('hours')}
+    span.grey-text.text-darken-2.right ~{{ cart.getDuration() }} #{__('t.hours')}
   li.grey-text
     | #{__('t.date')}
     span.grey-text.text-darken-2.right {{ cart.schedule.date | date: 'MMM dd' }}

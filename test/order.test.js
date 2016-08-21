@@ -74,7 +74,9 @@ describe('Order', function() {
       request(sails.hooks.http.app)
         .post('/order')
         .send(cartCard)
-        .expect(401, done);
+        .expect('location', '/signin')
+        .end(done)
+        // .expect(401, done);
     });
   });
 

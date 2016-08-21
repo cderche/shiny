@@ -1,21 +1,3 @@
 {
-	"nav.order": "Закaжите сейчас",
-	"nav.how": "О сервисе",
-	"nav.sign_in": "nav.sign_in",
-	"home.marketing": "home.marketing",
-	"nav.links": "nav.links",
-	"nav.questions": "nav.questions",
-	"nav.terms": "nav.terms",
-	"nav.signin": "nav.signin",
-	"auth.email": "auth.email",
-	"auth.password": "auth.password",
-	"auth.rememberme": "auth.rememberme",
-	"nav.signout": "nav.signout",
-	"english": "english",
-	"russian": "russian",
-	"auth.create_account": "auth.create_account",
-	"nav.signup": "nav.signup",
-	"auth.password_confirmation": "auth.password_confirmation",
-	"auth.agreeTerms": "auth.agreeTerms",
-	"auth.have_account": "auth.have_account"
+	
 }

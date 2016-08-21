@@ -2,13 +2,13 @@ form.container.tab-container.white(method='post' action='/order')
   input#cart(type='hidden' name='cart')
   ul.tabs.text-lighten-2
     li.tab.col.s3
-      a(href='#tab1') #{__('home')}
+      a(href='#tab1') #{__('t.home')}
     li.tab.col.s3(ng-class='{ disabled: !cart.isMinItems() }')
-      a(href='#tab2') #{__('when')}
+      a(href='#tab2') #{__('t.when')}
     li.tab.col.s3(ng-class='{ disabled: !cart.isMinSchedule() }')
-      a(href='#tab3') #{__('where')}
+      a(href='#tab3') #{__('t.where')}
     li.tab.col.s3(ng-class='{ disabled: !cart.isCompleted() }')
-      a(href='#tab4') #{__('payment')}
+      a(href='#tab4') #{__('t.payment')}
   #tab1.col.s12.tab-content
     include _tab1
   #tab2.col.s12.tab-content
