@@ -16,6 +16,11 @@ module.exports =
       type: 'string'
     user:
       model: 'user'
+    total_item_price:
+      type: 'float'
+    total_price:
+      type: 'float'
+
 
     getItem: (sku, next) ->
       for item in @items
