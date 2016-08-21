@@ -3,6 +3,7 @@
   "scripts": {
   },
   "env": {
+    "sails_hooks__grunt": false
   },
   "formation": {
   },
@@ -10,7 +11,7 @@
     "logentries:le_tryit",
     "newrelic:wayne",
     "mongolab:sandbox",
-    "heroku-redis:hobby-dev",
+    "heroku-redis:hobby-dev"
   ],
   "buildpacks": [
     {

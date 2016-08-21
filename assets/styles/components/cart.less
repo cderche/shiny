@@ -1,0 +1,33 @@
+.tab-container {
+  border: 1px #d1d1d1 solid;
+}
+
+.cart-panel {
+  position: relative;
+  z-index: 997;
+  min-height: 140px;
+}
+
+.cart-panel-content {
+  border-top: 1px #f2f2f2 solid;
+  border-bottom: 1px #f2f2f2 solid;
+  width: 100%;
+  position: fixed;
+}
+
+.cart-panel-content .row {
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+span.thumb {
+  display: none;
+}
+
+.store {
+  min-height: ~"calc(100vh - @{navbar-height-mobile})";
+
+  @media @medium-and-up {
+    min-height: ~"calc(100vh - @{navbar-height})";
+  }
+}

@@ -16,6 +16,14 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
+var lvl1 = ['localize', 'setUser']
+var lvl2 = lvl1.concat(['isAuthenticated'])
+
+ // var publicArray  = ['passport', 'localize']
+ // var authArray    = ['localize', 'passport', 'isAuthenticated']
+ // var walletArray  = ['localize', 'passport', 'isAuthenticated', 'wallet']
+
+var passport = require('passport')
 
 module.exports.policies = {
 
@@ -26,24 +34,38 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': ['localize'],
-
-  AuthController: {
-    login: ['localize','passport'],
-  },
-
-  DashboardController: {
-    '*': ['localize', 'passport', 'isAuthenticated'],
-  },
-
-  UserController: {
-    create: true,
-    '*': ['localize', 'passport', 'isAuthenticated'],
-  },
+  // '*': publicArray,
+  '*': lvl1,
 
   // AuthController: {
-  //   '*': ['localize', 'noSessionAuth']
+  //   // login: publicArray,
   // },
+
+  DashboardController: {
+    '*': ['isAuthenticated'],
+  },
+  //
+  UserController: {
+    create: true,
+    '*': lvl2,
+  },
+  //
+  OrderController: {
+    '*': lvl2,
+  },
+  //
+  HomeController: {
+    // public: publicArray,
+    private: lvl2,
+  },
+  //
+  CleanController: {
+    clean: lvl2.concat(['cardList'])
+  },
+
+  AuthController: {
+    'login': ['noSessionAuth']
+  },
 
   /***************************************************************************
   *                                                                          *

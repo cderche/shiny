@@ -6,7 +6,10 @@
 module.exports =
 
   home: (req, res) ->
-    return res.render('homepage')
+    return res.view('homepage')
 
-  page: (req, res) ->
-    return res.render(req.url.substr(1))
+  public: (req, res) ->
+    return res.view(req.url.substr(1))
+
+  private: (req, res) ->
+    return res.view(req.url.substr(1))

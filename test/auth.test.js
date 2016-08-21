@@ -1,7 +1,9 @@
 var request = require('supertest')
+var async = require('async')
 
 describe('Auth', function() {
 
+  var users = []
   var loginUser = { email: 'login@test.com', password: 'password' }
   var signupUser = { email: 'signup@test.com', password: 'password' }
 
@@ -9,15 +11,23 @@ describe('Auth', function() {
     User.create(loginUser, function(err, user) {
       if (err) { console.error(err) }
       console.log(`Created ${user.email}`);
+      users.push(user)
       next()
     })
+    // return next()
   })
 
   after(function(next) {
-    User.destroy().exec(function(err) {
+    async.each(users, function(user, done) {
+      User.destroy({id: user.id}).exec(function(err) {
+        if (err) { console.error(err) }
+        done()
+      })
+    }, function(err) {
       if (err) { console.error(err) }
       next()
     })
+    // return next()
   })
 
   describe('POST /login', function() {
@@ -34,7 +44,11 @@ describe('Auth', function() {
       request(sails.hooks.http.app)
         .post('/user')
         .send(signupUser)
-        .expect(201, done)
+        .expect(201)
+        .end(function(err, res) {
+          users.push(res.body)
+          done()
+        })
     })
   })
 
@@ -53,7 +67,4 @@ describe('Auth', function() {
         .expect(200, done)
     })
   })
-
-
-
 })

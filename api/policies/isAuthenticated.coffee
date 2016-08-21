@@ -16,7 +16,7 @@ module.exports = (req, res, next) ->
   #     #return next();
   #   else
   #     res.json 401
-
+  # console.log 'isAuthenticated', req.isAuthenticated()
   if req.isAuthenticated()
     return next()
   return res.redirect('signin')

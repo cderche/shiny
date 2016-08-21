@@ -1,0 +1,33 @@
+.row
+  .col.s12.m6  
+    ul
+      li
+        span.grey-text #{__('t.customer')} 
+        span.grey-text.text-darken-2.right {{ cart.address.first_name }} {{ cart.address.last_name }}
+      li 
+        span.grey-text #{__('t.email')} 
+        span.grey-text.text-darken-2.right {{ cart.address.email }}
+      li 
+        span.grey-text #{__('t.telephone')} 
+        span.grey-text.text-darken-2.right {{ cart.address.telephone }}
+      li 
+        span.grey-text #{__('t.street')} 
+        span.grey-text.text-darken-2.right {{ cart.address.street }}
+      li(ng-if='cart.address.house') 
+        span.grey-text #{__('t.house')} 
+        span.grey-text.text-darken-2.right {{ cart.address.house }}
+      li(ng-if='cart.address.housing') 
+        span.grey-text #{__('t.housing')} 
+        span.grey-text.text-darken-2.right {{ cart.address.housing }}
+      li(ng-if='cart.address.building') 
+        span.grey-text #{__('t.building')} 
+        span.grey-text.text-darken-2.right {{ cart.address.building }}
+      li(ng-if='cart.address.apartment') 
+        span.grey-text #{__('t.apartment')} 
+        span.grey-text.text-darken-2.right {{ cart.address.apartment }}
+  .col.s12.m6(ng-if='cart.address.note')
+    ul
+      li
+        .grey-text #{__('t.additional_note')}
+        .grey-text.text-darken-2 {{ cart.address.note }}
+    

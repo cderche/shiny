@@ -12,19 +12,19 @@ passport.use new LocalStrategy {
   usernameField: 'email'
 }, (email, password, next) ->
   User.findOne { email: email }, (err, user) ->
-    if err
-      return next err
-    if !user
-      return next null, false, { message: 'Unknown Email' }
+    return next err if err
+    return next null, false, { message: 'Unknown Email' } if !user
 
     user.comparePassword password, (err, res) ->
-      if !res
-        return next null, false, { message: 'Invalid Password' }
+      return next null, false, { message: 'Invalid Password' } if err
+      return next null, false, { message: 'Invalid Password' } if !res
+
       output = {
         email: user.email,
         createdAt: user.createdAt,
         id: user.id
       }
+
       return next null, output, { message: 'Logged in' }
     return
   return

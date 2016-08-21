@@ -1,0 +1,11 @@
+ul
+  li.right.right-align
+    .green-text.flow-text {{ cart.getFinalPrice() }} p.
+    span(ng-show='cart.getFinalPrice() != cart.getTotalPrice()')
+      s.grey-text.text-lighten-1 {{ cart.getTotalPrice() }} p.
+      span.green-text.text-lighten-3 {{ cart.getTotalPrice() - cart.getFinalPrice() }} p.
+      br
+    small.grey-text.text-lighten-1 #{__('t.per_clean')}
+
+//- button(ng-click='cart.clearSchedule()') Clear Schedule
+//- button(ng-click='cart.clearItems()') Clear Items

@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "async": "^2.0.1",
     "bcrypt-nodejs": "0.0.3",
     "coffee-script": "^1.10.0",
     "connect-redis": "^3.1.0",
@@ -26,6 +27,8 @@
     "mandrill-api": "^1.0.45",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "payture": "^1.1.0",
+    "rand-token": "^0.2.1",
     "rc": "1.0.1",
     "sails": "^0.12.4",
     "sails-disk": "~0.10.9",
@@ -33,6 +36,7 @@
     "socket.io-redis": "^1.0.0"
   },
   "scripts": {
+    "postinstall": "grunt prod",
     "debug": "node debug app.js",
     "start": "sails lift",
     "test": "mocha test/bootstrap.test.js test/**/*.test.js"
@@ -50,6 +54,8 @@
     "mocha": "^3.0.2",
     "sails-generate-controller-coffee": "0.0.0",
     "sails-generate-model-coffee": "^0.10.9",
+    "should": "^11.1.0",
+    "superagent": "^2.2.0",
     "supertest": "^2.0.0"
   }
 }

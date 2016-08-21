@@ -37,11 +37,13 @@ module.exports.routes = {
   // },
 
   '/' :             'HomeController.home',
-  '/how' :          'HomeController.page',
-  '/signin' :       'HomeController.page',
-  '/signup' :       'HomeController.page',
-  '/logout':       'AuthController.logout',
+  '/how' :          'HomeController.public',
+  '/signin' :       'HomeController.public',
+  '/signup' :       'HomeController.public',
+  '/clean' :        'CleanController.clean',
+  '/logout':        'AuthController.logout',
   '/dashboard':     'DashboardController.dashboard',
+  '/status':        'OrderController.status',
 
   'POST /login':    'AuthController.login',
   // '/forgot' :       'AuthController.forgot',
