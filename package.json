@@ -38,8 +38,8 @@
   },
   "scripts": {
     "postinstall": "grunt prod",
-    "debug": "node debug app.js",
-    "start": "sails lift",
+    "debug": "node debug start.js",
+    "start": "node start.js",
     "test": "mocha test/bootstrap.test.js test/**/*.test.js"
   },
   "main": "app.js",
