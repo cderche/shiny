@@ -1,5 +1,5 @@
 module.exports = (req, res, next) ->
-  console.log 'wallet'
+  # console.log 'wallet'
 
   payload =
     VWUserLgn:  req.user.email
@@ -7,7 +7,7 @@ module.exports = (req, res, next) ->
 
   try
     WalletService.getList payload, (err, data) ->
-      console.log 'Policy.Wallet', err, data
+      # console.log 'Policy.Wallet', err, data
       if err
         throw err
 

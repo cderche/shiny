@@ -17,7 +17,7 @@ module.exports =
     cart.user = req.user.id
 
     try
-      Order.create(cart).exec (err, order) ->
+      Order.create cart, (err, order) ->
         throw err if err
         # If cardId is false, redirect to payture
         if order.cardId == false or order.cardId == 'false'

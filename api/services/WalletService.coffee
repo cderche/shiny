@@ -12,7 +12,6 @@ module.exports =
     return
   register: (data, cb) ->
     api.wallet.users.register ADD, data, (err, res) ->
-      console.log
       cb err, res
       return
     return
