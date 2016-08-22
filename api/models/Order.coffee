@@ -20,18 +20,20 @@ module.exports =
       type: 'float'
     total_price:
       type: 'float'
-
     getItem: (sku, next) ->
       for item in @items
         if item.sku == sku
-          return next(sku)
+          return next(item)
       return
 
-  afterCreate: (order, next) ->
+  afterCreate: (record, next) ->
+    # console.log "record.id", record.id
     try
-      EmailService.confirmation order, (err, res) ->
-        if err
-          throw err
+      Order.findOne record.id, (err, order) ->
+        EmailService.confirmation order, (err, res) ->
+          if err
+            throw err
+          return
         return
     catch err
       console.error err

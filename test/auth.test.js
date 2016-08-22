@@ -10,7 +10,7 @@ describe('Auth', function() {
   before(function(next) {
     User.create(loginUser, function(err, user) {
       if (err) { console.error(err) }
-      console.log(`Created ${user.email}`);
+      // console.log(`Created ${user.email}`);
       users.push(user)
       next()
     })

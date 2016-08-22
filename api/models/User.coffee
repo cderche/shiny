@@ -70,7 +70,7 @@ module.exports =
         , (err, data) ->
           if err
             throw err
-          console.log data
+          # console.log data
           return done()
       catch err
         console.error err

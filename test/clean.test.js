@@ -11,7 +11,7 @@ describe('Clean', function() {
   before(function(next) {
     User.create(activeUser, function(err, user) {
       if (err) { throw err }
-      console.log(`Created ${user.email}`);
+      // console.log(`Created ${user.email}`);
       users.push(user)
 
       request(sails.hooks.http.app)
