@@ -3,7 +3,17 @@
   "scripts": {
   },
   "env": {
+<<<<<<< HEAD
     "sails_hooks__grunt": "false"
+=======
+    "sails_hooks__grunt": "false",
+    "MANDRILL_API_KEY": { "required": true },
+    "HOST": "",
+    "PAYTURE_ADD": { "required": true },
+    "PAYTURE_PAY": { "required": true },
+    "PAYTURE_HOST": { "required": true },
+    "PAYTURE_PASSWORD": { "required": true }
+>>>>>>> master
   },
   "formation": {
   },
