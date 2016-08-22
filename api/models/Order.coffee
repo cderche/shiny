@@ -21,9 +21,18 @@ module.exports =
     total_price:
       type: 'float'
 
-
     getItem: (sku, next) ->
       for item in @items
         if item.sku == sku
           return next(sku)
       return
+
+  afterCreate: (order, next) ->
+    try
+      EmailService.confirmation order, (err, res) ->
+        if err
+          throw err
+        return
+    catch err
+      console.error err
+    return next()

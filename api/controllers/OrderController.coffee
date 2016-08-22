@@ -22,6 +22,7 @@ module.exports =
         # If cardId is false, redirect to payture
         if order.cardId == false or order.cardId == 'false'
           data =
+            OrderId: order.id
             SessionType: 'Add'
             VWUserLgn: req.user.email
             VWUserPsw: req.user.payture_token

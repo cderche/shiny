@@ -18,10 +18,10 @@ module.exports =
       return next err
     return
 
-  confirmation: (order, user, next) ->
+  confirmation: (order, next) ->
     template: 'shiny-order-confirmation'
 
-    if order.address.email == user.email
+    if order.address.email == order.user.email
       to = [{
         email: user.email
         type: 'to'
