@@ -4,12 +4,12 @@
   },
   "env": {
     "sails_hooks__grunt": "false",
-    "MANDRILL_API_KEY": { "required": true },
-    "HOST": "",
-    "PAYTURE_ADD": { "required": true },
-    "PAYTURE_PAY": { "required": true },
-    "PAYTURE_HOST": { "required": true },
-    "PAYTURE_PASSWORD": { "required": true }
+    "MANDRILL_API_KEY":   { "required": true },
+    "PAYTURE_ADD":        { "required": true },
+    "PAYTURE_PAY":        { "required": true },
+    "PAYTURE_HOST":       { "required": true },
+    "PAYTURE_PASSWORD":   { "required": true },
+    "HEROKU_APP_NAME":    { "required": true }
   },
   "formation": {
   },
