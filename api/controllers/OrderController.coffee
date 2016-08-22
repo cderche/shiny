@@ -10,17 +10,26 @@ module.exports =
       cart = JSON.parse req.body.cart
     else
       cart = req.body.cart
-    # delete cart.$$hashKey
+
+    if !req.user
+      return res.redirect 'clean'
+
+    cart.user = req.user.id
+
     try
       Order.create(cart).exec (err, order) ->
         throw err if err
         # If cardId is false, redirect to payture
         if order.cardId == false or order.cardId == 'false'
+          uri = process.env.HOST || (process.env.HEROKU_APP_NAME + '.herokuapp.com')
+          uri += '/status?ref=' + order.id
+
           data =
+            OrderId: order.id
             SessionType: 'Add'
             VWUserLgn: req.user.email
             VWUserPsw: req.user.payture_token
-            Url: process.env.HOST + '/status?ref=' + order.id
+            Url: uri
 
           WalletService.init data, (err, data) ->
             throw err if err

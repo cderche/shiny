@@ -7,6 +7,8 @@ Cart = (name) ->
   @schedule   = {}
   @address    = {}
   @cardId    = false
+  @total_price = 0
+  @total_item_price = 0
   # Load items from local storage
   @loadItems()
   @loadSchedule()
@@ -116,7 +118,8 @@ Cart::getTotalPrice = (sku) ->
     if not sku or item.sku is sku
       total += @toNumber item.quantity * item.price
     i++
-  return total
+  @total_item_price = total
+  return @total_item_price
 
 Cart::getTotalCount = (sku) ->
   count = 0
@@ -163,7 +166,8 @@ Cart::getDuration = (sku) ->
 
 Cart::getFinalPrice = (sku) ->
   price = @getTotalPrice sku
-  return price * (1.0 - @schedule.rule.discount)
+  @total_price = price * (1.0 - @schedule.rule.discount)
+  return @total_price
 
 Cart::isMinAddress = ->
   return false if !@address
