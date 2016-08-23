@@ -14,8 +14,9 @@ module.exports =
         { email: 'orders@getshiny.ru', type: 'to' }
       ]
       global_merge_vars: [
-        { name: 'URL'
-          content: process.env.HOST + '/clean'
+        {
+          name: 'URL'
+          content: (process.env.HOST || (process.env.HEROKU_APP_NAME + '.herokuapp.com')) + '/clean'
         }
       ]
     EmailService.sendTemplate template, null, message, (err) ->
