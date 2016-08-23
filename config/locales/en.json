@@ -4,7 +4,7 @@
 	"t.sign_in": "Sign in",
 	"t.signout": "Sign out",
 	"t.english": "English",
-	"t.russian": "Russian",
+	"t.russian": "Русский",
 	"t.links": "Links",
 	"t.order": "Order",
 	"t.questions": "Questions",
@@ -66,5 +66,6 @@
 	"t.2weeks": "Every 2 weeks",
 	"t.weekly": "Every week",
 	"home.marketing": "home.marketing",
-	"nav.order": "nav.order"
+	"nav.order": "nav.order",
+	"t.marketing_front": "t.marketing_front"
 }
