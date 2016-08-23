@@ -110,5 +110,9 @@
 	"t.q9.p1": "In general our cleaners work individually. If you have the need for more than one cleaner, please write us an email or give us a call.",
 	"t.company.name": "DC Ventures LLC",
 	"t.company.address1": "Petra Romanova Street 7/1",
-	"t.company.address2": "115193, Moscow"
+	"t.company.address2": "115193, Moscow",
+	"t.once": "Once",
+	"t.month": "Once a month",
+	"t.2weeks": "Every 2 weeks",
+	"t.weekly": "Every week"
 }

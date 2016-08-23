@@ -13,7 +13,7 @@
       label #{__('t.how_often')}
       p(ng-repeat='rule in store.rules')
         input(name='rule' type='radio'  id='rule-{{rule.id}}' ng-click='cart.setRule(rule)' ng-checked='{{cart.schedule.rule.id == rule.id}}')
-        label(for='rule-{{rule.id}}') {{ rule.name }} (-{{ rule.discount | percentage }})
+        label(for='rule-{{rule.id}}') {{ rule.name | translate }} (-{{ rule.discount | percentage }})
 .container
   .row
     .col.s12

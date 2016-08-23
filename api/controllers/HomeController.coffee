@@ -15,6 +15,6 @@ module.exports =
     return res.view(req.url.substr(1))
 
   terms: (req, res) ->
+    return res.view('terms')
     # if req.getLocale() == 'en'
       # return res.view('terms-en')
-    return res.view('terms-ru')
