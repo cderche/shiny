@@ -6,14 +6,19 @@ footer.grey.lighten-3
         ul
           li
             a.grey-text.text-darken-3.uppercase(href='/clean') #{__('t.order')}
-          li
-            a.grey-text.text-darken-3.uppercase(href='/how') #{__('t.how_it_works')}
+          //- li
+            //- a.grey-text.text-darken-3.uppercase(href='/how') #{__('t.how_it_works')}
           li
             a.grey-text.text-darken-3.uppercase(href='/questions') #{__('t.questions')}
           li
             a.grey-text.text-darken-3.uppercase(href='/terms') #{__('t.terms0')}
-      //- .col.l4.s12
-      //-   ul
-      //-     li Language: #{lang}
-      //-     - if (user)
-      //-       li User: #{user.email}
+      .col.l4.s12
+      .col.l4.s12.right-align
+        ul
+          li
+            a(href='mailto:help@getshiny.ru') help@getshiny.ru
+          li
+            a(href='tel:+79168484427"') +7 (916) 848-44-27
+          li #{__('t.company.name')}
+          li #{__('t.company.address1')}
+          li #{__('t.company.address2')}
