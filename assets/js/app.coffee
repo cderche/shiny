@@ -26,12 +26,11 @@ module.config [
       't.weekly':      'Every week'
     }
     $translateProvider.translations 'ru', {
-      't.bed':        'Спальни'
       't.liv':        'Гостиные',
       't.liv_desc':   'Количество гостиных',
       't.kit':        'Кухни',
       't.kit_desc':   'Количество кухонь',
-      't.bed':        'спальни',
+      't.bed':        'Спальни',
       't.bed_desc':   'Количество спален',
       't.bat':        'Санузлы',
       't.bat_desc':   'Количество санузлов	',

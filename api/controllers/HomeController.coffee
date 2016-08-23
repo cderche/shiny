@@ -13,3 +13,8 @@ module.exports =
 
   private: (req, res) ->
     return res.view(req.url.substr(1))
+
+  terms: (req, res) ->
+    # if req.getLocale() == 'en'
+      # return res.view('terms-en')
+    return res.view('terms-ru')
