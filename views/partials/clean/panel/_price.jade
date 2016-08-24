@@ -1,9 +1,9 @@
 ul
   li.right.right-align
-    .green-text.flow-text {{ cart.getFinalPrice() }} p.
+    .green-text.flow-text {{ cart.getFinalPrice() || cart.total_price }} p.
     span(ng-show='cart.getFinalPrice() != cart.getTotalPrice()')
-      s.grey-text.text-lighten-1 {{ cart.getTotalPrice() }} p.
-      span.green-text.text-lighten-3 {{ cart.getTotalPrice() - cart.getFinalPrice() }} p.
+      s.grey-text.text-lighten-1 {{ cart.getTotalPrice() || cart.total_item_price }} p.
+      span.green-text.text-lighten-3 {{ (cart.getTotalPrice() - cart.getFinalPrice()) || cart.total_item_price - cart.total_price }} p.
       br
     small.grey-text.text-lighten-1 #{__('t.per_clean')}
 

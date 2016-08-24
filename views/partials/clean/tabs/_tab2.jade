@@ -6,7 +6,7 @@
       input.datepicker(type='date' id='datepicker')
   .row
     .col.s12
-      label(for='timepicker') #{__('t.pick_a_time')}
+      label(for='timepicker') #{__('t.pick_a_time')} (08:00-19:00)
       input.timepicker(type='time' id='timepicker' value='{{ cart.schedule.time | date : "HH:mm" }}')
   .row
     .col.s12

@@ -103,7 +103,7 @@
 	"t.q3.b4": "Floor cleaning solutions",
 	"t.q3.b5": "Universal cleaning solution",
 	"t.q7.heading": "Who are the cleaners that use Shiny?",
-	"t.q7.p1": "The professionals using the Shiny platform are independent service providers. It's our job to help connect you to them. Professionals apply to register on the Handy platform, and undergo a background check and a platform orientation session before they're able to register. The professionals are required to maintain high customer ratings, so make sure to rate all of your professionals after each booking!",
+	"t.q7.p1": "The professionals using the Shiny platform are independent service providers. It's our job to help connect you to them. Professionals apply to register on the Shiny platform, and undergo a background check and a platform orientation session before they're able to register. The professionals are required to maintain high customer ratings, so make sure to rate all of your professionals after each booking!",
 	"t.q8.heading": "How do I change the frequency of my cleans?",
 	"t.q8.p1": "Just write us an email of give us a call:",
 	"t.q9.heading": "Can I book more than one professional?",
@@ -111,8 +111,5 @@
 	"t.company.name": "DC Ventures LLC",
 	"t.company.address1": "Petra Romanova Street 7/1",
 	"t.company.address2": "115193, Moscow",
-	"t.once": "Once",
-	"t.month": "Once a month",
-	"t.2weeks": "Every 2 weeks",
-	"t.weekly": "Every week"
+	"terms0": "terms0"
 }

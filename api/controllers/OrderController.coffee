@@ -21,7 +21,7 @@ module.exports =
         throw err if err
         # If cardId is false, redirect to payture
         if order.cardId == false or order.cardId == 'false'
-          uri = process.env.HOST || (process.env.HEROKU_APP_NAME + '.herokuapp.com')
+          uri = process.env.HOST || ('https://' + process.env.HEROKU_APP_NAME + '.herokuapp.com')
           uri += '/status?ref=' + order.id
 
           data =
