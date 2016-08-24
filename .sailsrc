@@ -2,7 +2,7 @@
   "generators": {
     "modules": {}
   },
-  "hooks" {
+  "hooks": {
     "sockets": false,
     "pubsub": false
   }
