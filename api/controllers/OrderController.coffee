@@ -26,15 +26,16 @@ module.exports =
 
           data =
             OrderId: order.id
-            SessionType: 'Add'
+            SessionType: 'Pay'
             VWUserLgn: req.user.email
             VWUserPsw: req.user.payture_token
             Url: uri
+            Amount: 1000
 
           WalletService.init data, (err, data) ->
             throw err if err
             sessionId = data.Init.SessionId
-            uri = process.env.PAYTURE_HOST + '/vwapi/Add?SessionId=' + sessionId
+            uri = process.env.PAYTURE_HOST + '/vwapi/Pay?SessionId=' + sessionId
             return res.redirect uri
         # Else confirm order
         else
