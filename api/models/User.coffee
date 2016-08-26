@@ -45,13 +45,13 @@ module.exports =
 
   afterCreate: (user, next) ->
     try
-      WalletService.register
-        VWUserLgn: user.email
-        VWUserPsw: user.payture_token
-      , (err, data) ->
-        if err
-          throw err
-        return
+      # WalletService.register
+      #   VWUserLgn: user.email
+      #   VWUserPsw: user.payture_token
+      # , (err, data) ->
+      #   if err
+      #     throw err
+      #   return
 
       EmailService.welcome user, (err, res) ->
         if err

@@ -26,11 +26,11 @@ module.exports =
 
           data =
             OrderId: order.id
-            SessionType: 'Pay'
+            SessionType: 'Block'
             VWUserLgn: req.user.email
             VWUserPsw: req.user.payture_token
-            Url: uri
             Amount: 1000
+            # Url: uri
 
           WalletService.init data, (err, data) ->
             throw err if err
