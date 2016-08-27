@@ -9,7 +9,8 @@
     "PAYTURE_PAY":        { "required": true },
     "PAYTURE_HOST":       { "required": true },
     "PAYTURE_PASSWORD":   { "required": true },
-    "HEROKU_APP_NAME":    { "required": true }
+    "HEROKU_APP_NAME":    { "required": true },
+    "TZ":                 "Europe/Moscow"
   },
   "formation": {
   },

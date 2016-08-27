@@ -50,20 +50,28 @@ ORDER = {
 CART  = {
   cart: ORDER
 }
-NOTIFICATION = {
-  'Notification': 'CustomerAddSuccess',
-  'PhoneNumber':  '123456789',
-  'VWUserLgn':    USER.email,
-  'CardName':     'John Doe',
-  'CardId':       '15227c4a-d352-4191-8c3d-b331e9a9e57d',
-  'Success':      'True',
+NOTIFICATION_ADD = {
+  OrderId: 'ABCD', // Must be set
+  SessionType: 'Block',
+  WUserLgn: USER.email,
+  VWUserPsw: 'ABCD', // Must be set
+  Amount: '100',
+  CardHolder: 'User Name',
+  IsAlfa: 'False',
+  CardName: '411111xxxxxx1111',
+  CardId: 'd14e7aaa-4658-45dd-a4da-91cdf00918c0',
+  CardNumber: '411111xxxxxx1111',
+  DateTime: '636079113333222187',
+  Success: 'True',
+  Notification: 'CustomerAddSuccess',
+  MerchantContract: 'VWMerchantGetshinyAdd'
 }
 
 module.exports = {
 
-  user:           USER,
-  order:          ORDER,
-  cart:           CART,
-  notification:   NOTIFICATION
+  user:             USER,
+  order:            ORDER,
+  cart:             CART,
+  notificationAdd:  NOTIFICATION_ADD
 
 }

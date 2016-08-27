@@ -20,21 +20,41 @@ module.exports =
       type: 'float'
     total_price:
       type: 'float'
+    status:
+      type: 'string'
+      defaultsTo: 't.open'
+
     getItem: (sku, next) ->
-      for item in @items
+      value = null
+      async.each @items, (item, done) ->
         if item.sku == sku
-          return next(item)
+          value = item
+        done()
+      , (err) ->
+        throw err if err
+        if value
+          return next(value)
+        return next()
       return
 
-  afterCreate: (record, next) ->
-    # console.log "record.id", record.id
-    try
-      Order.findOne record.id, (err, order) ->
-        EmailService.confirmation order, (err, res) ->
-          if err
-            throw err
-          return
-        return
-    catch err
-      console.error err
-    return next()
+  beforeUpdate: (data, next) ->
+    # console.log 'Order.beforeUpdate
+    if data.status
+      OrderService.statusUpdate data.status, data.id, (err, res) ->
+        return next()
+      return
+    else
+      return next()
+
+  # afterCreate: (record, next) ->
+  #   # console.log "record.id", record.id
+  #   try
+  #     Order.findOne record.id, (err, order) ->
+  #       EmailService.confirmation order, (err, res) ->
+  #         if err
+  #           throw err
+  #         return
+  #       return
+  #   catch err
+  #     console.error err
+  #   return next()

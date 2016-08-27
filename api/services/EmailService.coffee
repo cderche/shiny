@@ -25,6 +25,7 @@ module.exports =
     return
 
   confirmation: (order, next) ->
+    # console.log 'EmailService.confirmation'
     template = 'shiny-order-confirmation'
 
     User.findOne { id: order.user }, (err, user) ->
@@ -56,19 +57,19 @@ module.exports =
           global_merge_vars: [
             {
               name: 'BEDROOMS'
-              content: items['BED'].quantity
+              content: items['BED'].quantity if items['BED']
             }
             {
               name: 'BATHROOMS'
-              content: items['BAT'].quantity
+              content: items['BAT'].quantity if items['BAT']
             }
             {
               name: 'IRON'
-              content: items['IRO'].quantity
+              content: items['IRO'].quantity if items['IRO']
             }
             {
               name: 'WINDOWS'
-              content: items['WIN'].quantity
+              content: items['WIN'].quantity if items['WIN']
             }
             {
               name: 'DATE'
@@ -124,16 +125,16 @@ module.exports =
             }
           ]
 
-        EmailService.sendTemplate template, null, message, (err) ->
+        EmailService.sendTemplate template, null, message, (err, res) ->
           # console.log 'Got a Mandrill response.'
-          return next err
+          return next err, res
         return
       return
     return
 
   sendTemplate: (name, content, message, next) ->
+    # console.log 'EmailService.sendTemplate'
     ip_pool = 'Main Pool'
-
     try
       client.messages.sendTemplate
         'template_name': name
@@ -147,8 +148,7 @@ module.exports =
       , (err) ->
         if err
           throw err
-      return
     catch error
       console.error error
-      return next()
+      return next(error)
     return
