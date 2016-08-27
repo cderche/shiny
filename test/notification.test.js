@@ -19,6 +19,7 @@ describe('POST /notification', function() {
         // console.log('Create user');
         User.create(data.user, function(err, u) {
           user = u
+          data.notificationAdd.VWUserPsw = u.payture_token
           next(err)
         })
       },
@@ -27,7 +28,7 @@ describe('POST /notification', function() {
         data.order.user = user.id
         Order.create(data.order, function(err, o) {
           order = o
-          data.notification.OrderId = o.id
+          data.notificationAdd.OrderId = o.id
           next(err)
         })
       },
@@ -83,7 +84,7 @@ describe('POST /notification', function() {
   it('Should return status 200 OK', function(done) {
     request(sails.hooks.http.app)
       .post('/notification')
-      .send(data.notification)
+      .send(data.notificationAdd)
       .expect(200, done)
   })
 
@@ -96,8 +97,8 @@ describe('POST /notification', function() {
   })
 
   it('Should add a cardId to the order', function(done) {
-    Order.findOne({ id: data.notification.OrderId }, function(err, order) {
-      order.cardId.should.equal(data.notification.CardId)
+    Order.findOne({ id: data.notificationAdd.OrderId }, function(err, order) {
+      order.cardId.should.equal(data.notificationAdd.CardId)
       done()
     })
   })

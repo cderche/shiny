@@ -20,6 +20,10 @@ module.exports =
       type: 'float'
     total_price:
       type: 'float'
+    status:
+      type: 'string'
+      defaultsTo: 't.open'
+
     getItem: (sku, next) ->
       for item in @items
         if item.sku == sku

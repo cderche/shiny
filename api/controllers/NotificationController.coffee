@@ -5,7 +5,7 @@
 
 module.exports =
   create: (req, res) ->
-    console.log "Notification", req.body
+    # console.log "Notification", req.body
     Notification.create req.body, (err, notification) ->
       throw err if err
       return res.ok()
