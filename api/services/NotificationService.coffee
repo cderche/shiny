@@ -1,7 +1,7 @@
 module.exports =
   CustomerPaySuccess: (data, next) ->
     if data.OrderId and data.CardId
-      Order.update { id: data.OrderId }, { cardId: data.CardId, status: 't.processed' }
+      Order.update { id: data.OrderId }, { id: data.OrderId, cardId: data.CardId, status: 't.processed' }
         .exec (err, update) ->
           throw err if err
           console.error 'CustomerPaySuccess'
@@ -14,7 +14,7 @@ module.exports =
 
   CustomerAddSuccess: (data, next) ->
     if data.OrderId and data.CardId
-      Order.update { id: data.OrderId }, { cardId: data.CardId, status: 't.processed' }
+      Order.update { id: data.OrderId }, { id: data.OrderId, cardId: data.CardId, status: 't.processed' }
         .exec (err, update) ->
           throw err if err
           console.error 'CustomerAddSuccess'

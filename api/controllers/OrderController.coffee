@@ -29,7 +29,7 @@ module.exports =
             SessionType: 'Block'
             VWUserLgn: req.user.email
             VWUserPsw: req.user.payture_token
-            Amount: 1000
+            Amount: 100
             # Url: uri
 
           WalletService.init data, (err, data) ->
