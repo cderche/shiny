@@ -6,14 +6,14 @@
       input.datepicker(type='date' id='datepicker')
   .row
     .col.s12
-      label(for='timepicker') #{__('t.pick_a_time')}
+      label(for='timepicker') #{__('t.pick_a_time')} (08:00-19:00)
       input.timepicker(type='time' id='timepicker' value='{{ cart.schedule.time | date : "HH:mm" }}')
   .row
     .col.s12
       label #{__('t.how_often')}
       p(ng-repeat='rule in store.rules')
         input(name='rule' type='radio'  id='rule-{{rule.id}}' ng-click='cart.setRule(rule)' ng-checked='{{cart.schedule.rule.id == rule.id}}')
-        label(for='rule-{{rule.id}}') {{ rule.name }} (-{{ rule.discount | percentage }})
+        label(for='rule-{{rule.id}}') {{ rule.name | translate }} (-{{ rule.discount | percentage }})
 .container
   .row
     .col.s12

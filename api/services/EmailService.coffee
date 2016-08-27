@@ -9,14 +9,14 @@ module.exports =
   welcome: (user, next) ->
     template = 'shiny-account-activation'
     message =
-      to: [ {
-        email: user.email
-        type: 'to'
-      } ]
+      to: [
+        { email: user.email, type: 'to' }
+        { email: 'orders@getshiny.ru', type: 'to' }
+      ]
       global_merge_vars: [
         {
           name: 'URL'
-          content: process.env.HOST + '/clean'
+          content: (process.env.HOST || (process.env.HEROKU_APP_NAME + '.herokuapp.com')) + '/clean'
         }
       ]
     EmailService.sendTemplate template, null, message, (err) ->
@@ -32,14 +32,15 @@ module.exports =
       # console.log "user.email", user.email
       # console.log "order.address.email", order.address.email
       if order.address.email == user.email
-        to = [{
-          email: user.email
-          type: 'to'
-        }]
+        to = [
+          { email: user.email, type: 'to' }
+          { email: 'orders@getshiny.ru', type: 'to' }
+        ]
       else
         to = [
           { email: user.email, type: 'to' }
           { email: order.address.email, type: 'to' }
+          { email: 'orders@getshiny.ru', type: 'to' }
         ]
       items = {}
 

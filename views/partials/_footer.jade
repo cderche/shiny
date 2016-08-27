@@ -1,19 +1,29 @@
 footer.grey.lighten-3
   .container
     .row
-      .col.l4.s12
+      .col.m4.s12
         //- .flow-text.text-darken-3 #{__('t.links')}
         ul
           li
             a.grey-text.text-darken-3.uppercase(href='/clean') #{__('t.order')}
-          li
-            a.grey-text.text-darken-3.uppercase(href='/how') #{__('t.how_it_works')}
+          //- li
+            //- a.grey-text.text-darken-3.uppercase(href='/how') #{__('t.how_it_works')}
           li
             a.grey-text.text-darken-3.uppercase(href='/questions') #{__('t.questions')}
           li
             a.grey-text.text-darken-3.uppercase(href='/terms') #{__('t.terms0')}
-      //- .col.l4.s12
-      //-   ul
-      //-     li Language: #{lang}
-      //-     - if (user)
-      //-       li User: #{user.email}
+      .col.m4.s12
+        ul(style='display: inline;')
+          li
+            img(src='images/visa.svg' width=40)
+          li
+            img(src='images/mastercard.svg' width=40)
+      .col.m4.s12.right-align
+        ul
+          li
+            a(href='mailto:help@getshiny.ru') help@getshiny.ru
+          li
+            a(href='tel:+79263911284"') +7 (926) 391-12-84
+          li #{__('t.company.name')}
+          li #{__('t.company.address1')}
+          li #{__('t.company.address2')}

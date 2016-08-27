@@ -28,6 +28,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "payture": "^1.1.0",
+    "pm2": "^1.1.3",
     "rand-token": "^0.2.1",
     "rc": "1.0.1",
     "sails": "^0.12.4",
@@ -37,8 +38,8 @@
   },
   "scripts": {
     "postinstall": "grunt prod",
-    "debug": "node debug app.js",
-    "start": "sails lift",
+    "debug": "node debug start.js",
+    "start": "node start.js",
     "test": "mocha test/bootstrap.test.js test/**/*.test.js"
   },
   "main": "app.js",

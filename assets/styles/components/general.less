@@ -3,7 +3,7 @@ body {
 }
 
 .full-height {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .centered {
@@ -12,12 +12,33 @@ body {
 }
 
 .outline {
-  border: 1px #e0e0e0 solid;
+  border: 1px #e0e0e0 solid !important;
 }
 
+
 .collapsible, .collapsible-header, .collapsible-body {
-  border: none !important;
-  box-shadow: none !important;
+  border: none;
+  box-shadow: none;
+}
+
+.collapsible > li {
+  border-bottom: 1px #e0e0e0 solid !important;
+}
+
+.collapsible-body ul {
+  padding-left: 1rem;
+}
+
+.collapsible-body {
+  padding-top: 0px;
+  padding-right: 1rem;
+  padding-bottom: 0px;
+  padding-left: 1rem;
+}
+
+.terms {
+  padding: 2rem !important;
+  color: #595959 !important;
 }
 
 .margin-top {

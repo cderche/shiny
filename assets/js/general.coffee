@@ -3,4 +3,6 @@ $(document).ready ->
     e.stopPropagation()
     return
 
+  $('.modal-trigger').leanModal()
+
   return

@@ -25,12 +25,12 @@
             span(style='font-size: 16px') {{ cart.getTotalCount(product.sku) }}
           a.btn-flat.btn-large.btn-option.btn-right.outline(ng-click="cart.addItem(product.sku, product.name, product.desc, product.price, 1); $event.stopPropagation();")
             i.material-icons add
-.row
-  .col.s12
-    ul.collapsible
-      li
-        .collapsible-header.center #{__('t.how_calc')}
-        .collapsible-body.container #{__('t.how_calc_desc')}
+//- .row
+//-   .col.s12
+//-     ul.collapsible
+//-       li
+//-         .collapsible-header.center #{__('t.how_calc')}
+//-         .collapsible-body.container #{__('t.how_calc_desc')}
 .container
   .row
     .col.s12

@@ -21,20 +21,21 @@ module.exports =
         throw err if err
         # If cardId is false, redirect to payture
         if order.cardId == false or order.cardId == 'false'
-          uri = process.env.HOST || (process.env.HEROKU_APP_NAME + '.herokuapp.com')
+          uri = process.env.HOST || ('https://' + process.env.HEROKU_APP_NAME + '.herokuapp.com')
           uri += '/status?ref=' + order.id
 
           data =
             OrderId: order.id
-            SessionType: 'Add'
+            SessionType: 'Block'
             VWUserLgn: req.user.email
             VWUserPsw: req.user.payture_token
-            Url: uri
+            Amount: 1000
+            # Url: uri
 
           WalletService.init data, (err, data) ->
             throw err if err
             sessionId = data.Init.SessionId
-            uri = process.env.PAYTURE_HOST + '/vwapi/Add?SessionId=' + sessionId
+            uri = process.env.PAYTURE_HOST + '/vwapi/Pay?SessionId=' + sessionId
             return res.redirect uri
         # Else confirm order
         else
