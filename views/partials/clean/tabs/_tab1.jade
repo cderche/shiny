@@ -14,7 +14,7 @@
 .row
   .container.center(ng-repeat='sku in ["WIN", "IRO"]')
     .col.m6.s12(ng-init='product = store.getProduct(sku)')
-      button.btn-flat.btn-sq(type='button' ng-class='{ active: cart.getTotalCount(sku) > 0 }' ng-click='stateChanged(sku)')
+      div.btn-flat.btn-sq(type='button' ng-class='{ active: cart.getTotalCount(sku) > 0 }' ng-click='stateChanged(sku)')
         label {{ product.name | translate }}
         br
         label(ng-hide='cart.getTotalCount(sku) > 0') {{ product.desc | translate }}
