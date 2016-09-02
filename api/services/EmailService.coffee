@@ -45,6 +45,15 @@ module.exports =
         ]
       items = {}
 
+
+      # console.log i18n
+      # console.log i18n.__l(order.schedule.rule.name)
+      # console.log 'order', order
+      # mDate = moment(order.schedule.date)
+      # strDate = mDate.format('ddd, MMM Do YYYY')
+      # console.log 'moment', mDate
+      # console.log 'strDate', strDate
+
       async.each ['BED','BAT','IRO','WIN'], (sku, done) ->
         order.getItem sku, (item) ->
           items[sku] = item
@@ -73,16 +82,16 @@ module.exports =
             }
             {
               name: 'DATE'
-              content: moment(order.schedule.date).format('dd, Mo MMM YYYY')
+              content: moment(order.schedule.date).format('ddd, MMM Do YYYY')
             }
             {
               name: 'TIME'
               content: moment(order.schedule.time).format('HH:mm')
             }
-            {
-              name: 'RULE'
-              content: order.schedule.rule.name
-            }
+            # {
+            #   name: 'RULE'
+            #   content: order.schedule.rule.name
+            # }
             {
               name: 'PRICE'
               content: order.total_price
