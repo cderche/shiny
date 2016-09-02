@@ -45,6 +45,12 @@ module.exports =
         ]
       items = {}
 
+      # console.log 'order', order
+      # mDate = moment(order.schedule.date)
+      # strDate = mDate.format('ddd, MMM Do YYYY')
+      # console.log 'moment', mDate
+      # console.log 'strDate', strDate
+
       async.each ['BED','BAT','IRO','WIN'], (sku, done) ->
         order.getItem sku, (item) ->
           items[sku] = item
@@ -73,7 +79,7 @@ module.exports =
             }
             {
               name: 'DATE'
-              content: moment(order.schedule.date).format('dd, Mo MMM YYYY')
+              content: moment(order.schedule.date).format('ddd, MMM Do YYYY')
             }
             {
               name: 'TIME'
