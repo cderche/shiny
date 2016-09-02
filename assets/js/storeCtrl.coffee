@@ -6,7 +6,6 @@ module.controller 'StoreCtrl', [
   ($scope, DataService, $timeout, $cookies) ->
     $scope.store  = DataService.store
     $scope.cart   = DataService.cart
-    $scope.wallet = DataService.wallet
 
     $scope.stateChanged = (sku) ->
       product = $scope.store.getProduct sku
@@ -99,7 +98,6 @@ module.controller 'StoreCtrl', [
 module.factory 'DataService', ->
   store   = new Store()
   cart    = new Cart('shiny-cart')
-  wallet  = new Wallet()
 
   if cart.items.length <= 0
     # Set defaults
@@ -121,5 +119,4 @@ module.factory 'DataService', ->
   return {
     store:  store
     cart:   cart
-    wallet: wallet
   }

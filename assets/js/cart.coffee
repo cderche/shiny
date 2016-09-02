@@ -16,6 +16,7 @@ Cart = (name) ->
 
   self = @
   $(window).unload ->
+    console.log 'clearCart', self.clearCart
     if self.clearCart
       self.clearItems()
       self.clearSchedule()

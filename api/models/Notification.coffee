@@ -11,7 +11,7 @@ module.exports =
 
   attributes: {}
 
-  beforeCreate: (data, next) ->
+  afterCreate: (data, next) ->
     # Update order to contain cardId
     switch data.Notification
       when CustomerAddSuccess
