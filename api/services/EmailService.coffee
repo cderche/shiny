@@ -45,6 +45,9 @@ module.exports =
         ]
       items = {}
 
+
+      # console.log i18n
+      # console.log i18n.__l(order.schedule.rule.name)
       # console.log 'order', order
       # mDate = moment(order.schedule.date)
       # strDate = mDate.format('ddd, MMM Do YYYY')
@@ -85,10 +88,10 @@ module.exports =
               name: 'TIME'
               content: moment(order.schedule.time).format('HH:mm')
             }
-            {
-              name: 'RULE'
-              content: order.schedule.rule.name
-            }
+            # {
+            #   name: 'RULE'
+            #   content: order.schedule.rule.name
+            # }
             {
               name: 'PRICE'
               content: order.total_price
