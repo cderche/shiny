@@ -42,7 +42,7 @@ $(document).ready ->
       agreeTerms = $('#agreeTerms').prop('checked')
     if $('#password_confirmation')
       validPassword = $('#password').val() == $('#password_confirmation').val()
-      lengthPassword = ($('#password').val().length >= 8)
+      # lengthPassword = ($('#password').val().length >= 8)
 
     if agreeTerms && validPassword && lengthPassword
       $('.btn').removeClass('disabled')
