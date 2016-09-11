@@ -19,15 +19,18 @@ $(document).ready ->
     $.each $(this).serializeArray(), ->
       data[this.name] = this.value
       return
-    auth '/login', data, ->
-      $(location).attr 'href', '/clean'
+    auth '/login', data, (data) ->
+      if data.message
+        $('.message').html(data.message)
+      else
+        $(location).attr 'href', '/clean'
       return
     return
 
   auth = (url, data, next) ->
     $.post url, data
       .done (data) ->
-        return next()
+        return next(data)
       .fail (err) ->
         console.error 'err', err
         return
