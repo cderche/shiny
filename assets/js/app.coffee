@@ -40,7 +40,7 @@ module.config [
       't.iro_desc':   'Приблизительное количество вещей, подлежащих глажке',
       't.once':       'Один раз',
       't.month':      'Раз в месяц',
-      't.2weeks':     'Раз в 2 неделы',
+      't.2weeks':     'Раз в 2 недели',
       't.weekly':     'Раз в неделю'
     }
     $translateProvider.preferredLanguage 'en'

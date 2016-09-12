@@ -112,5 +112,10 @@
 	"t.company.name": "DC Ventures LLC",
 	"t.company.address1": "Petra Romanova Street 7/1",
 	"t.company.address2": "115193, Moscow",
-	"terms0": "terms0"
+	"terms0": "terms0",
+	"t.q10.heading": "Do I have to be at home during the clean?",
+	"t.q10.p1": "This is entirely up to you. You can provide a key to your cleaner. However we do recommend that you are there for the first booking at least. This allows you to meet your cleaner and to provide her with any special instructions regarding the clean.",
+	"t.q10.p2": "Please note that Shiny does not get involved in key handling, exchange or return.",
+	"t.wrong_email": "Unknown email.",
+	"t.wrong_password": "Wrong password."
 }

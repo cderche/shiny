@@ -13,11 +13,11 @@ passport.use new LocalStrategy {
 }, (email, password, next) ->
   User.findOne { email: email }, (err, user) ->
     return next err if err
-    return next null, false, { message: 'Unknown Email' } if !user
+    return next null, false, { message: 'Email error / Ошибка с email' } if !user
 
     user.comparePassword password, (err, res) ->
-      return next null, false, { message: 'Invalid Password' } if err
-      return next null, false, { message: 'Invalid Password' } if !res
+      return next null, false, { message: 'Password error / Ошибка с паролем' } if err
+      return next null, false, { message: 'Password error / Ошибка с паролем' } if !res
 
       output = {
         email: user.email,
