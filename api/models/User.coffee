@@ -11,7 +11,7 @@ module.exports =
 
   attributes: {
     email:          { type: 'email', required: true, unique: true }
-    password:       { type: 'string', minLength: 6, required: true }
+    password:       { type: 'string', required: true }
     payture_token:  { type: 'string', required: true }
     orders:
       collection: 'order'
