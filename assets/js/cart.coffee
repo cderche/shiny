@@ -33,6 +33,11 @@ Cart::loadSchedule = ->
   if schedule and JSON
     try
       @schedule = JSON.parse schedule
+      # If the date is before next 2 days, make it the next 2 days.
+      last = moment(@schedule.date)
+      pls2 = moment().add(2,'d')
+      if last.isBefore(pls2)
+        @schedule.date = pls2.toDate()
   return
 
 Cart::loadItems = ->

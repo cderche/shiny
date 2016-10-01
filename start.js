@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV === 'dev') {
+  console.log('Dev Environment');
+  require('./env')
+}
+
+
 var pm2 = require('pm2')
 
 var instances = process.env.WEB_CONCURRENCY || 1
